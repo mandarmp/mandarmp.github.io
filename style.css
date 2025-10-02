@@ -1,3 +1,107 @@
+
+/* -------- Modern portfolio overrides -------- */
+:root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --muted:#9aa6b2;
+    --accent:#4fb0c6;
+    --glass: rgba(255,255,255,0.04);
+}
+body.modern-portfolio{background:var(--bg);color:#e6eef6;font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+.site-container{max-width:1100px;margin:0 auto;padding:0 20px}
+.site-header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(15,23,36,0.6), rgba(15,23,36,0.3));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand img{height:36px}
+#mobile-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:22px}
+.site-nav{display:flex;gap:18px}
+.site-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px}
+.site-nav a:hover,.site-nav a.active{color:#fff;background:var(--glass)}
+
+.header-cta{background:var(--accent);color:#062026;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600}
+.header-socials{display:flex;gap:10px;align-items:center;margin-left:14px}
+.header-socials a{color:var(--muted);opacity:0.85}
+.header-socials svg{display:block}
+
+/* stronger active state for nav links */
+.site-nav a.active{background:linear-gradient(90deg, rgba(79,176,198,0.12), rgba(79,176,198,0.06));color:#fff}
+
+/* skills toggle */
+.skills{margin-top:12px}
+.skills .skill-list{max-height:0;overflow:hidden;transition:max-height .38s ease;padding-left:0;margin:0}
+.skills.open .skill-list{max-height:400px}
+.skills .skill-toggle{display:inline-block;margin-top:8px;cursor:pointer;color:var(--accent)}
+
+/* contact visibility: lighter card */
+.contact{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+.contact-grid{background: rgba(255,255,255,0.02);padding:18px;border-radius:10px}
+.contact-grid input::placeholder,.contact-grid textarea::placeholder{color:rgba(230,238,246,0.6)}
+
+
+/* Hero */
+.hero{padding:70px 0;display:flex;align-items:center}
+.hero-inner{display:flex;gap:40px;align-items:center}
+.hero-content{flex:1}
+.hero h1{font-size:40px;margin:0 0 12px;color:#fff}
+.hero .sub{color:var(--muted);margin-bottom:18px}
+.hero-cta .btn{background:var(--accent);color:#062026;padding:10px 16px;border-radius:8px;text-decoration:none;margin-right:10px}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.hero-cta{display:flex;align-items:center;gap:12px}
+.hero-socials{display:flex;gap:8px;align-items:center;margin-left:8px}
+.hero-socials .social{color:var(--muted);background:transparent;padding:6px 8px;border-radius:6px;text-decoration:none;border:1px solid rgba(255,255,255,0.03)}
+.hero-socials .social:hover{color:#fff;background:var(--glass)}
+.hero-photo{width:220px;flex:0 0 220px}
+.profile-photo{width:100%;height:auto;border-radius:12px;display:block;box-shadow:0 8px 30px rgba(3,9,14,0.6)}
+
+/* Sections */
+.section{padding:70px 0}
+.section-title{color:#fff;margin-bottom:18px}
+.about .split{display:flex;gap:30px;align-items:flex-start}
+.split-left{flex:1}
+.split-right{width:320px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.project-card{background:var(--card);border-radius:10px;overflow:hidden;padding-bottom:12px;border:1px solid rgba(255,255,255,0.03)}
+.project-card img{width:100%;height:160px;object-fit:cover;display:block}
+.project-card h3{margin:12px;color:#fff;padding:0 12px}
+.project-card p{padding:0 12px 12px;color:var(--muted)}
+
+/* Blog */
+.blog-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.post{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.post h3{color:#fff;margin:0 0 8px}
+.post time{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:700px}
+.contact-grid input,.contact-grid textarea{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+
+/* Reveal animations */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 520ms ease,transform 520ms ease}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:900px){
+    .hero-inner{flex-direction:column-reverse}
+    .hero-photo{width:160px}
+    .about .split{flex-direction:column}
+    #mobile-toggle{display:block}
+    .site-nav{position:absolute;right:20px;top:64px;background:rgba(3,9,14,0.9);padding:10px;border-radius:8px;display:none;flex-direction:column}
+    .site-nav.open{display:flex}
+}
+
+/* small helpers */
+.btn{display:inline-block}
+
+/* ensure legacy template elements don't conflict */
+.navbar,.main-banner,.parallaxie{display:none !important}
+
+/* end modern overrides */
 /*------------------------------------------------------------------
     Version: 1.0
 -------------------------------------------------------------------*/
@@ -303,8 +407,11 @@ a img.aligncenter {
     HEADER
 -------------------------------------------------------------------*/
 
-.navbar-dark{
-	
+.navbar-dark .navbar-nav .nav-link{
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-size: 14px;
+    position: relative;
 }
 
 .navbar-dark .navbar-nav .nav-link{
@@ -2130,7 +2237,7 @@ select.mobile-device {
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    line-height: 1 !important;
 }
 
 .footer {
@@ -2376,7 +2483,7 @@ select.mobile-device {
     color: #999 !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 .stat-wrap p {
@@ -2385,7 +2492,7 @@ select.mobile-device {
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 #preloader {
