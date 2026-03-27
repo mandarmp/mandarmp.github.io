@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
 
     <!-- Basic -->
     <meta charset="utf-8">
@@ -9,14 +10,22 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Mandar - Responsive HTML5 OnePage Template</title>  
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<title>Mandar Patil | Neuroengineering & ML Engineer</title>
+	<meta name="keywords" content="machine learning engineer, neuroengineering, data pipelines, C++, biomedical data, signal processing, MLOps">
+	<meta name="description" content="Mandar Patil builds production-grade data and ML pipelines for complex neural datasets, combining neuroengineering expertise with systems engineering and automation.">
+	<meta name="author" content="Mandar Patil">
+	<meta name="robots" content="index, follow">
+	<meta property="og:title" content="Mandar Patil | Neuroengineering & ML Engineer">
+	<meta property="og:description" content="Industry-oriented portfolio focused on scalable data pipelines, ML for neural signals, and high-performance engineering.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="uploads/frontal_photo.jpg">
+	<meta property="og:url" content="https://mandarmp.github.io/">
+	<meta name="twitter:card" content="summary_large_image">
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="canonical" href="https://mandarmp.github.io/">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,20 +40,19 @@
 									<div style="display:flex;align-items:center;gap:14px">
 										<a class="brand" href="#home"><img src="images/logo.png" alt="Mandar"/></a>
 									</div>
-							<button id="mobile-toggle" aria-label="Toggle navigation">☰</button>
+							<button id="mobile-toggle" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
 							<nav id="site-nav" class="site-nav">
 								<a href="#home">Home</a>
 								<a href="#about">About</a>
 								<a href="#projects">Projects</a>
-								<a href="#blog">Blog</a>
-								<a href="#contact">Contact</a>
+								<a href="#experience">Experience</a>
 							</nav>
 							<div class="header-socials">
-								<a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+								<a href="https://github.com/mandarmp" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
 									<!-- GitHub SVG -->
 									<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 								</a>
-								<a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+								<a href="https://www.linkedin.com/in/patilmandarm/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
 									<!-- LinkedIn SVG -->
 									<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2c.7-1.3 2.4-2.2 4.6-2.2 4.9 0 5.9 3.2 5.9 7.4V24h-5v-7.1c0-1.7 0-3.9-2.4-3.9-2.4 0-2.8 1.9-2.8 3.8V24H7.5V8z"></path></svg>
 								</a>
@@ -56,14 +64,20 @@
 			<section id="home" class="hero">
 				<div class="site-container hero-inner">
 					<div class="hero-content">
-						<h1 class="reveal">Hi — I'm Mandar</h1>
-						<p class="sub reveal">Aspiring Computational Neuroscientist — I build models and experiments at the intersection of neuroscience and AI.</p>
+						<h1 class="reveal">Mandar Patil</h1>
+						<p class="sub reveal">I build scalable data and machine-learning pipelines for high-dimensional neural signals, with a strong foundation in systems engineering, automation, and performance optimization.</p>
+						<div class="hero-tags reveal">
+							<span>ML Engineering</span>
+							<span>Neural Data Pipelines</span>
+							<span>C++ Systems</span>
+							<span>Automation & CI/CD</span>
+						</div>
 												<div class="hero-cta reveal">
 														<a class="btn" href="#projects">See Projects</a>
 														<a class="btn" href="uploads/Mandar_CV.pdf" download>Download CV</a>
 														<div class="hero-socials">
-															<a class="social" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-															<a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+															<a class="social" href="https://github.com/mandarmp" target="_blank" rel="noopener">GitHub</a>
+															<a class="social" href="https://www.linkedin.com/in/patilmandarm/" target="_blank" rel="noopener">LinkedIn</a>
 															<a class="social" href="mailto:mmpatil@health.ucdavis.edu">Email</a>
 														</div>
 												</div>
@@ -79,26 +93,31 @@
 				<div class="site-container">
 					<div class="split">
 						<div class="split-left reveal">
-							<h2>About me</h2>
-							<p>I am a graduate student at the University of Birmingham pursuing MSc in Computational Neuroscience and Cognitive Robotics. I enjoy building prototypes, analyzing neural data and applying biologically inspired ideas to machine learning.</p>
-							<p>Interests: Neurotechnology, robotics, biologically plausible ML, brain–computer interfaces.</p>
+							<h2>What I build</h2>
+							<p>I design end-to-end computational workflows that turn noisy, high-volume biosignal data into reliable, decision-ready outputs. My work spans data ingestion, preprocessing, feature engineering, model development, and deployment-aware optimization.</p>
+							<p>With experience across academic research and industry engineering, I combine scientific rigor with production thinking: robust code, reproducible pipelines, and measurable performance.</p>
 													<div class="skills">
 											<div class="skill-toggle" role="button" tabindex="0" aria-expanded="false">Show skills ▾</div>
 											<ul class="skill-list">
 												<li>Python</li>
+										<li>HD-MEA Data Analysis</li>
+										<li>Neural Signal Processing</li>
 												<li>Machine Learning</li>
-												<li>Neuroscience</li>
-												<li>Robotics</li>
+										<li>MLOps & Automation</li>
 												<li>C++</li>
+										<li>Data Pipelines</li>
+										<li>Performance Optimization</li>
 											</ul>
 										</div>
 						</div>
 						<div class="split-right reveal">
 							<div class="card">
-								<h3>Current</h3>
+								<h3>Current Role</h3>
+								<p>PhD Student, Biomedical Engineering — University of California, Davis</p>
+								<h3>Background</h3>
 								<p>MSc Computational Neuroscience & Cognitive Robotics — University of Birmingham</p>
-								<h3>Skills</h3>
-								<p>Python • Data analysis • ML • Neuroscience • Robotics • C++</p>
+								<h3>Industry Strengths</h3>
+								<p>Scalable data pipelines • ML for signal-rich data • C++ systems engineering • CI/CD automation</p>
 							</div>
 						</div>
 					</div>
@@ -108,56 +127,87 @@
 			<!-- Projects -->
 			<section id="projects" class="section projects">
 				<div class="site-container">
-					<h2 class="section-title reveal">Projects</h2>
+					<h2 class="section-title reveal">Selected Projects</h2>
 					<div class="projects-grid">
 						<article class="project-card reveal">
-							<img src="uploads/gallery_img-01.jpg" alt="Project 1" loading="lazy">
-							<h3>BCI Research</h3>
-							<p>Brain–computer interface experiments and analysis.</p>
+							<img src="uploads/banner-01.jpg" alt="Multielectrode Array Analysis neuroscience visualization" loading="lazy">
+							<h3>Multielectrode Array Analysis</h3>
+							<p>Built reusable HD-MEA analysis workflows for large neural datasets, improving throughput and consistency of electrophysiology analysis.</p>
+							<p class="project-meta">Stack: Python, MEA analysis pipelines</p>
+							<a class="project-link" href="https://github.com/roybens/MEA_Analysis" target="_blank" rel="noopener">View Repository</a>
 						</article>
 						<article class="project-card reveal">
-							<img src="uploads/gallery_img-02.jpg" alt="Project 2" loading="lazy">
-							<h3>Neuro-RL</h3>
-							<p>Reinforcement learning with spiking networks.</p>
+							<img src="uploads/gallery_img-04.jpg" alt="CORLEGO Visual Attention Modelling visual interface preview" loading="lazy">
+							<h3>CORLEGO Visual Attention Modelling</h3>
+							<p>Developed modelling components for visual attention analysis and translated research methods into reproducible computational workflows.</p>
+							<p class="project-meta">Applied research engineering • PeerJ publication</p>
+							<a class="project-link" href="https://peerj.com/articles/18953.pdf" target="_blank" rel="noopener">Read Paper</a>
 						</article>
 						<article class="project-card reveal">
-							<img src="uploads/gallery_img-03.jpg" alt="Project 3" loading="lazy">
-							<h3>Robotics</h3>
-							<p>Control systems for mobile robots.</p>
+							<img src="uploads/gallery_img-03.jpg" alt="ECOG motor imagery classification code workflow" loading="lazy">
+							<h3>ECOG Motor Imagery Classification</h3>
+							<p>Implemented a complete ECoG motor-imagery ML pipeline, from preprocessing and feature engineering to robust model evaluation.</p>
+							<p class="project-meta">Stack: Python, neural signal processing, ML</p>
+							<a class="project-link" href="https://github.com/mandarmp/nma_motor_imagery" target="_blank" rel="noopener">View Repository</a>
+						</article>
+						<article class="project-card reveal">
+							<img src="uploads/Labelled_Sinus_of_Valsalva_aneurysm.jpg" alt="MRI cardiac image segmentation labelled scan" loading="lazy">
+							<h3>MRI Cardiac Image Segmentation</h3>
+							<p>Engineered segmentation workflows for cardiac MRI data to enable structured, quantitative analysis and downstream automation.</p>
+							<p class="project-meta">Stack: Python, medical image processing</p>
+							<a class="project-link" href="https://github.com/mandarmp/Cardiac-MRI-IMAGESEG" target="_blank" rel="noopener">View Repository</a>
+						</article>
+						<article class="project-card reveal">
+							<img src="uploads/gallery_img-01.jpg" alt="Robotic server implementation software workstation" loading="lazy">
+							<h3>Robotic Server Implementation</h3>
+							<p>Implemented server infrastructure for robotics simulation with emphasis on reliability, modularity, and integration performance.</p>
+							<p class="project-meta">Stack: Robotics simulation, server implementation</p>
+							<a class="project-link" href="https://github.com/mandarmp/Intelligent-robotics-simulation" target="_blank" rel="noopener">View Repository</a>
 						</article>
 					</div>
 				</div>
 			</section>
 
-			<!-- Blog -->
-			<section id="blog" class="section blog">
+			<!-- Experience -->
+			<section id="experience" class="section blog">
 				<div class="site-container">
-					<h2 class="section-title reveal">Blog</h2>
-					<div class="blog-list">
+					<h2 class="section-title reveal">Experience</h2>
+					<div class="blog-list experience-list">
 						<article class="post reveal">
-							<h3>Modeling Synaptic Plasticity</h3>
-							<time>2025-06-12</time>
-							<p>Exploring biologically plausible learning rules for continual learning.</p>
+							<h3>Computational Junior Specialist</h3>
+							<time>UC Davis Health · Full-time · Dec 2022 - Jul 2024 (1 yr 8 mos)</time>
+							<p class="experience-meta">Sacramento, California, United States · On-site</p>
+							<ul class="experience-points">
+								<li>Processed neural data from high-density microelectrode arrays for advanced biomedical research.</li>
+								<li>Developed platforms to characterize neurodevelopmental disorders, with focus on autism and epilepsy.</li>
+								<li>Built computational models to reverse engineer ionic channels in neurons toward personalized therapies.</li>
+								<li>Analyzed mice EEG datasets to identify potential biomarkers and improve diagnostic precision.</li>
+								<li>Used supercomputing resources to manage and analyze large-scale datasets efficiently.</li>
+								<li>Applied data wrangling and visualization techniques for clear interpretation and streamlined workflows.</li>
+							</ul>
 						</article>
 						<article class="post reveal">
-							<h3>Neurotech Prototyping</h3>
-							<time>2024-11-05</time>
-							<p>Rapid prototyping pipeline for closed-loop stimulation.</p>
+							<h3>Graduate Student Research Assistant</h3>
+							<time>University of California, Davis · Part-time · Apr 2025 - Present</time>
+							<p class="experience-meta">California, United States · Statistics and Computer Science</p>
+							<ul class="experience-points">
+								<li>Independently design and execute research-focused computational workflows for neural and behavioral datasets.</li>
+								<li>Apply statistical analysis, machine learning, and scientific programming to support hypothesis-driven studies.</li>
+								<li>Build reproducible analysis pipelines and visual reporting tools for research interpretation and communication.</li>
+							</ul>
+						</article>
+						<article class="post reveal">
+							<h3>Software Engineer</h3>
+							<time>Robert Bosch Engineering and Business Solutions India · Full-time · Sep 2019 - Dec 2020 (1 yr 4 mos)</time>
+							<p class="experience-meta">Bengaluru, Karnataka, India</p>
+							<ul class="experience-points">
+								<li>Received SPOT Award for quickly learning software architecture, development, testing, and deployment workflows.</li>
+								<li>Improved code quality and maintainability by modernizing legacy modules to contemporary C++ standards.</li>
+								<li>Owned integrator responsibilities for critical CI/CD releases and reduced build times through Linux and Jenkins automation.</li>
+								<li>Explored ML and AI applications using TensorFlow, PyTorch, and scikit-learn, and completed RBEI Kaushal AI certification.</li>
+							</ul>
 						</article>
 					</div>
-				</div>
-			</section>
-
-			<!-- Contact -->
-			<section id="contact" class="section contact">
-				<div class="site-container">
-					<h2 class="section-title reveal">Contact</h2>
-					<form id="contactForm" class="contact-grid reveal">
-						<input name="name" placeholder="Name" required>
-						<input name="email" type="email" placeholder="Email" required>
-						<textarea name="message" placeholder="Message" rows="6" required></textarea>
-						<button class="btn" type="submit">Send Message</button>
-					</form>
 				</div>
 			</section>
 

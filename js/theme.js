@@ -6,9 +6,15 @@
   const toggle = document.getElementById('mobile-toggle');
   const nav = document.getElementById('site-nav');
   if(toggle && nav){
-    toggle.addEventListener('click', ()=> nav.classList.toggle('open'));
+    toggle.addEventListener('click', ()=> {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
     // close when a link is clicked
-    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> nav.classList.remove('open')));
+    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   }
 
   // reveal on scroll
@@ -22,18 +28,33 @@
 
   document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
 
-  // improved scrollspy: keeps nav link active for the section near top
+  // robust scrollspy for fixed header layouts
   const sections = Array.from(document.querySelectorAll('section[id]'));
   const navlinks = Array.from(document.querySelectorAll('#site-nav a'));
-  const spy = new IntersectionObserver((entries)=>{
-    // find the entry nearest to the top by isIntersecting and boundingClientRect
-    const visible = entries.filter(e=> e.isIntersecting).sort((a,b)=> a.boundingClientRect.top - b.boundingClientRect.top);
-    if(visible.length){
-      const id = visible[0].target.id;
-      navlinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+  function updateActiveNav(){
+    if(!sections.length || !navlinks.length) return;
+
+    const header = document.querySelector('.site-header');
+    const offset = (header ? header.offsetHeight : 0) + 24;
+    const y = window.scrollY + offset;
+    let activeId = sections[0].id;
+
+    for(let i = 0; i < sections.length; i++){
+      const current = sections[i];
+      const next = sections[i + 1];
+      const currentTop = current.offsetTop;
+      const nextTop = next ? next.offsetTop : Number.POSITIVE_INFINITY;
+      if(y >= currentTop && y < nextTop){
+        activeId = current.id;
+        break;
+      }
     }
-  },{threshold:[0.25,0.5,0.75],rootMargin:'-12% 0px -55% 0px'});
-  sections.forEach(s=> spy.observe(s));
+
+    navlinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#' + activeId));
+  }
+  updateActiveNav();
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
 
   // smooth scroll offset for fixed header
   function offsetScrollTo(hash){
@@ -75,24 +96,65 @@
   // ensure clicking project cards doesn't remove nav or hide it; keep state stable
   document.querySelectorAll('.project-card').forEach(card=>{
     card.addEventListener('click', ()=>{
-      // when project clicked, ensure active nav remains pointing to projects
-      navlinks.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#projects'));
+      // keep nav state fresh after in-section interactions
+      updateActiveNav();
     });
   });
 
   // set current year
   const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
 
-  // contact form stub — prevent default and show a basic confirmation
+  // contact form submission with server feedback
   const form = document.getElementById('contactForm');
   if(form){
-    form.addEventListener('submit', (e)=>{
+    form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
-      if(btn) btn.disabled = true;
-      // simple visual confirmation
-      btn.textContent = 'Sent — thank you!';
-      setTimeout(()=>{ if(btn){ btn.disabled=false; btn.textContent='Send Message'; } }, 2200);
+      const status = document.getElementById('formStatus');
+      const originalBtnText = btn ? btn.textContent : '';
+      const endpoint = form.getAttribute('action') || 'mail/contact_me.php';
+
+      if(status){
+        status.textContent = '';
+        status.classList.remove('success', 'error');
+      }
+
+      try {
+        if(btn){
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+        }
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form)
+        });
+
+        if(!response.ok){
+          throw new Error('Request failed');
+        }
+
+        const body = (await response.text()).trim();
+        if(body && /no arguments provided/i.test(body)){
+          throw new Error('Validation failed');
+        }
+
+        if(status){
+          status.textContent = 'Message sent successfully. Thank you.';
+          status.classList.add('success');
+        }
+        form.reset();
+      } catch (err) {
+        if(status){
+          status.textContent = 'Unable to send right now. Please email mmpatil@health.ucdavis.edu.';
+          status.classList.add('error');
+        }
+      } finally {
+        if(btn){
+          btn.disabled = false;
+          btn.textContent = originalBtnText || 'Send Message';
+        }
+      }
     });
   }
 
