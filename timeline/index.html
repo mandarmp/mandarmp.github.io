@@ -3,12 +3,10 @@ layout: default
 title: Timeline
 description: Career timeline for Mandar Patil, covering roles, education, research, publications and awards.
 ---
-<section class="page-head">
-  <div class="container">
-    <p class="eyebrow">Timeline</p>
-    <h1 class="display">The path so far</h1>
-    <p class="lede">Industry engineering, graduate study and research, newest first. Filter by type, or <a href="{{ site.author.cv | relative_url }}">download the full CV</a>.</p>
-  </div>
+<section class="page-head container">
+  <p class="label"><span class="idx">CH03</span> Timeline</p>
+  <h1 class="page-title">The path so far</h1>
+  <p class="lede">Industry engineering, graduate study and research, newest first. Each event is a spike on the trace. Filter by type, or <a href="{{ site.author.cv | relative_url }}">download the full CV</a>.</p>
 </section>
 
 {% assign types = "work,education,research,publication,award" | split: "," %}
@@ -17,7 +15,7 @@ description: Career timeline for Mandar Patil, covering roles, education, resear
     <button type="button" class="filter is-active" data-value="all">All</button>
     {% for t in types %}
       {% assign n = site.data.timeline | where: "type", t | size %}
-      {% if n > 0 %}<button type="button" class="filter" data-value="{{ t }}"><i class="dot type-{{ t }}"></i>{{ t | capitalize }} <span>{{ n }}</span></button>{% endif %}
+      {% if n > 0 %}<button type="button" class="filter type-{{ t }}" data-value="{{ t }}"><i class="dot"></i>{{ t | capitalize }} <span>{{ n }}</span></button>{% endif %}
     {% endfor %}
   </div>
 
@@ -26,22 +24,22 @@ description: Career timeline for Mandar Patil, covering roles, education, resear
     {% for e in site.data.timeline %}
       {% assign y = e.year | append: "" %}
       {% if y != last_year %}
-        <li class="tl-year" data-type="year"><span>{{ y }}</span></li>
+        <li class="tl-year mono" data-type="year"><span>t = {{ y }}</span></li>
         {% assign last_year = y %}
       {% endif %}
-      <li class="tl-item reveal" data-type="{{ e.type }}">
-        <span class="tl-dot type-{{ e.type }}" aria-hidden="true"></span>
+      <li class="tl-item reveal type-{{ e.type }}" data-type="{{ e.type }}">
+        <svg class="tl-spike" viewBox="0 0 28 40" aria-hidden="true"><polyline points="0,22 8,22 11,18 14,2 17,38 20,14 23,22 28,22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
         <article class="tl-card">
-          <header>
-            <span class="chip type-{{ e.type }}">{{ e.type | capitalize }}</span>
-            <time>{{ e.start }}{% if e.end %} – {{ e.end }}{% endif %}</time>
+          <header class="mono">
+            <span class="tl-type">{{ e.type }}</span>
+            <time>{{ e.start }}{% if e.end %} → {{ e.end }}{% endif %}</time>
           </header>
           <h3>{{ e.title }}</h3>
-          <p class="tl-org">{{ e.org }}{% if e.location %} · <span class="muted">{{ e.location }}</span>{% endif %}</p>
-          {% if e.summary %}<p>{{ e.summary }}</p>{% endif %}
+          <p class="tl-org">{{ e.org }}{% if e.location %} <span class="muted">/ {{ e.location }}</span>{% endif %}</p>
+          {% if e.summary %}<p class="muted">{{ e.summary }}</p>{% endif %}
           {% if e.points %}
           <details>
-            <summary>Highlights</summary>
+            <summary class="mono">+ Highlights ({{ e.points.size }})</summary>
             <ul>{% for p in e.points %}<li>{{ p }}</li>{% endfor %}</ul>
           </details>
           {% endif %}

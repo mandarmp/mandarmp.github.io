@@ -1,0 +1,30 @@
+---
+layout: default
+title: Publications
+description: Peer-reviewed papers and preprints by Mandar Patil in computational neuroscience, electrophysiology and neurodevelopmental disorders.
+---
+{% assign pubs = site.data.publications %}
+{% assign n_pub = pubs | where: "status", "published" | size %}
+{% assign n_pre = pubs | where: "status", "preprint" | size %}
+<section class="page-head container">
+  <p class="label"><span class="idx">CH02</span> Publications</p>
+  <h1 class="page-title">Papers<sup class="mono">{{ pubs.size }}</sup></h1>
+  <p class="lede">Computational neuroscience, electrophysiology and models of neurodevelopmental disorders. The full, up-to-date list is on <a href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar ↗</a>.</p>
+  <dl class="spec pub-stats">
+    <div><dt>Total</dt><dd>{{ pubs.size }}</dd></div>
+    <div><dt>Peer-reviewed</dt><dd>{{ n_pub }}</dd></div>
+    <div><dt>Preprints</dt><dd>{{ n_pre }}</dd></div>
+    <div><dt>Collaborators</dt><dd>UC Davis · Univ. of Birmingham</dd></div>
+  </dl>
+</section>
+
+<section class="container">
+  <div class="filter-bar" role="toolbar" aria-label="Filter publications" data-filter-target="#pubs" data-filter-attr="status">
+    <button type="button" class="filter is-active" data-value="all">All <span>{{ pubs.size }}</span></button>
+    <button type="button" class="filter" data-value="published">Peer-reviewed <span>{{ n_pub }}</span></button>
+    <button type="button" class="filter" data-value="preprint">Preprints <span>{{ n_pre }}</span></button>
+  </div>
+  <ol class="pub-list" id="pubs">
+    {% for p in pubs %}{% include pub-row.html pub=p n=forloop.rindex %}{% endfor %}
+  </ol>
+</section>

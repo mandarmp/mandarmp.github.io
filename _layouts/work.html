@@ -2,28 +2,28 @@
 layout: default
 ---
 <article class="case">
-  <header class="case-hero">
-    <div class="container">
-      <a class="back-link" href="{{ '/work/' | relative_url }}">← All work</a>
-      <p class="eyebrow">{{ page.category }} · {{ page.year }}</p>
-      <h1>{{ page.title }}</h1>
-      <p class="lede">{{ page.summary }}</p>
-      <dl class="case-facts">
-        {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
-        {% if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
-        {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
-      </dl>
-      {% if page.links %}
-      <div class="btn-row">
-        {% for l in page.links %}<a class="btn {% if forloop.first %}btn-primary{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
-      </div>
-      {% endif %}
+  <header class="case-hero container">
+    <a class="back-link mono" href="{{ '/work/' | relative_url }}">← INDEX / WORK</a>
+    <p class="label"><span class="idx">REC-{% if page.order < 10 %}0{% endif %}{{ page.order }}</span> {{ page.category }} · {{ page.year }}</p>
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+    <dl class="spec">
+      {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+      {% if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
+      <div><dt>Year</dt><dd>{{ page.year }}</dd></div>
+      {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: " / " }}</dd></div>{% endif %}
+    </dl>
+    {% if page.links %}
+    <div class="btn-row">
+      {% for l in page.links %}<a class="btn {% if forloop.first %}btn-signal{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
     </div>
+    {% endif %}
   </header>
 
   <div class="container">
-    <figure class="case-cover">
+    <figure class="case-cover frame">
       <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+      <figcaption class="mono">FIG. 1 · {{ page.cover_alt | default: page.title }}</figcaption>
     </figure>
   </div>
 
@@ -35,20 +35,25 @@ layout: default
   </div>
   {% endif %}
 
-  <div class="container narrow prose">
-    {{ content }}
+  <div class="container case-body">
+    <aside class="case-aside mono" aria-hidden="true">
+      <span>NOTES</span>
+    </aside>
+    <div class="prose">
+      {{ content }}
+    </div>
   </div>
 
   {% if page.gallery %}
-  <section class="container">
-    <h2 class="section-title">Work samples</h2>
+  <section class="container case-gallery">
+    <p class="label"><span class="idx">↳</span> Work samples</p>
     <div class="gallery">
       {% for g in page.gallery %}
       <figure>
-        <button class="gallery-item" type="button" data-full="{{ g.src | relative_url }}" data-caption="{{ g.caption }}">
+        <button class="gallery-item frame" type="button" data-full="{{ g.src | relative_url }}" data-caption="{{ g.caption }}">
           <img src="{{ g.src | relative_url }}" alt="{{ g.caption }}" loading="lazy">
         </button>
-        {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+        {% if g.caption %}<figcaption class="mono">FIG. {{ forloop.index | plus: 1 }} · {{ g.caption }}</figcaption>{% endif %}
       </figure>
       {% endfor %}
     </div>
@@ -57,8 +62,8 @@ layout: default
 
   {% assign others = site.work | where_exp: "w", "w.url != page.url" | sample: 2 %}
   <section class="container more-work">
-    <h2 class="section-title">More work</h2>
-    <div class="work-grid">
+    <p class="label"><span class="idx">→</span> Next recordings</p>
+    <div class="work-grid two">
       {% for w in others %}{% include work-card.html item=w %}{% endfor %}
     </div>
   </section>
@@ -67,5 +72,5 @@ layout: default
 <dialog class="lightbox" id="lightbox">
   <button class="icon-btn lightbox-close" type="button" aria-label="Close">✕</button>
   <img alt="">
-  <p class="lightbox-caption"></p>
+  <p class="lightbox-caption mono"></p>
 </dialog>

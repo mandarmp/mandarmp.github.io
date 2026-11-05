@@ -3,6 +3,33 @@
 # Fields: start, end (or "Present"), title, org, location, summary, points[], link{label,url}, tags[]
 # Entries marked "VERIFY" have dates I inferred; please confirm them.
 
+- type: publication
+  start: May 2026
+  year: 2026
+  title: "Cortical organoid model of PPP2R5D intellectual disability"
+  org: bioRxiv preprint · with UC Davis (Fink & Ben-Shalom labs)
+  summary: Cerebral cortical-like organoids showing variant-specific disease severity phenotypes.
+  link: { label: Read preprint, url: "https://www.semanticscholar.org/paper/0b7e19b06aef3ee25ee4897791373bb39e1834b9" }
+  tags: [Organoids, Electrophysiology]
+
+- type: publication
+  start: Jul 2025
+  year: 2025
+  title: "Gain-of-function mouse model of KCNT1-related epilepsy"
+  org: bioRxiv preprint · with UC Davis (Silverman & Ben-Shalom labs)
+  summary: A novel mouse model for KCNT1-related epilepsy.
+  link: { label: Read preprint, url: "https://doi.org/10.1101/2025.07.22.666003" }
+  tags: [Epilepsy, EEG]
+
+- type: publication
+  start: May 2025
+  year: 2025
+  title: "Prenatal folic acid excess alters cortical gene networks & electrophysiology"
+  org: bioRxiv preprint · with UC Davis (LaSalle, Zarbalis & Ben-Shalom labs)
+  summary: How excess prenatal folic acid changes cortical gene expression networks and neuronal electrophysiology.
+  link: { label: Read preprint, url: "https://doi.org/10.1101/2025.05.07.652681" }
+  tags: [HD-MEA, Electrophysiology]
+
 - type: research
   start: Apr 2025
   end: Present
@@ -18,13 +45,13 @@
   tags: [Python, Statistics, ML]
 
 - type: publication
-  start: 2025            # VERIFY
+  start: Feb 2025
   year: 2025
-  title: "CORLEGO: visual attention modelling"
-  org: PeerJ
-  summary: Peer-reviewed article on computational modelling of visual attention.
-  link: { label: Read paper, url: "https://peerj.com/articles/18953.pdf" }
-  tags: [Computational modelling]
+  title: "First-author paper in PeerJ: modelling visually guided movements"
+  org: PeerJ 13 · with D. Heinke & F. Zhang (Univ. of Birmingham)
+  summary: "Computational modelling reveals the influence of object similarity and proximity on visually guided movements."
+  link: { label: Read paper, url: "https://peerj.com/articles/18953/" }
+  tags: [CORLEGO, Computational modelling]
 
 - type: education
   start: 2024            # VERIFY

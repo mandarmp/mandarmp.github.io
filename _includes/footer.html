@@ -1,25 +1,31 @@
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <div>
-      <p class="footer-title">Let's build something reliable.</p>
-      <p class="muted">Open to ML engineering, neural data and research-software roles.</p>
-      <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Get in touch</a>
-    </div>
-    <div class="footer-cols">
+  <svg class="flatline" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <polyline points="0,30 520,30 540,30 548,26 556,4 564,56 572,18 580,30 600,30 1200,30" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="container">
+    <p class="label">End of recording</p>
+    <a class="footer-cta" href="mailto:{{ site.author.email }}">Let's talk<span aria-hidden="true">↗</span></a>
+    <p class="muted footer-note">Open to ML engineering, neural data and research-software roles.</p>
+    <div class="footer-grid">
       <div>
-        <h4>Site</h4>
+        <p class="label">Index</p>
         <a href="{{ '/' | relative_url }}">Home</a>
         {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
       </div>
       <div>
-        <h4>Elsewhere</h4>
+        <p class="label">Elsewhere</p>
         {% include social-links.html %}
-        <a href="{{ '/blog/feed.xml' | relative_url }}">RSS feed</a>
+        <a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a>
+      </div>
+      <div>
+        <p class="label">Location</p>
+        <span>Davis, California</span>
+        <span class="muted">38.54° N, 121.74° W</span>
       </div>
     </div>
-  </div>
-  <div class="container footer-base muted">
-    <span>© {{ site.time | date: '%Y' }} {{ site.author.name }}</span>
-    <span>Built with Jekyll · Hosted on GitHub Pages</span>
+    <div class="footer-base">
+      <span>© {{ site.time | date: '%Y' }} {{ site.author.name }}</span>
+      <span>Last sync {{ site.time | date: '%Y-%m-%d' }}</span>
+    </div>
   </div>
 </footer>

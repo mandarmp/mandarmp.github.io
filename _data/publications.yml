@@ -1,0 +1,42 @@
+# Publications: newest first. Source: Google Scholar / Semantic Scholar.
+# status: published | preprint
+# Mark your own name in `authors` with ** ** to highlight it.
+# Optional: role (shown as a short note), code, pdf.
+
+- title: "Cerebral Cortical-Like Organoid Model of PPP2R5D Induced Genetic Intellectual Disability Displays Variant-Specific Disease Severity Phenotype"
+  authors: "Y.-X. Du, M. S. Singh, **M. Patil**, I. Villegas, A. Portillo, K. Shang, R. Ben-Shalom, J. Halmai, K. D. Fink"
+  venue: bioRxiv
+  year: 2026
+  date: 2026-05-27
+  status: preprint
+  topics: [Organoids, Electrophysiology, Intellectual disability]
+  url: "https://www.semanticscholar.org/paper/0b7e19b06aef3ee25ee4897791373bb39e1834b9"
+
+- title: "Novel Gain of Function Mouse Model of KCNT1-Related Epilepsy"
+  authors: "S. L. Olguin, D. J. Davis, A. Rehman, S. Berg, E. Sahagun, P. S. Oswalt, **M. Patil**, P. D. Sullivan, B. Zhang, E. C. Bryda, R. Ben-Shalom, J. L. Silverman"
+  venue: bioRxiv
+  year: 2025
+  date: 2025-07-25
+  status: preprint
+  topics: [Epilepsy, Mouse model, EEG]
+  url: "https://doi.org/10.1101/2025.07.22.666003"
+
+- title: "Excess prenatal folic acid supplementation alters cortical gene expression networks and electrophysiology"
+  authors: "V. Haghani, S. M. Ali, N. Cannizzaro, **M. Patil**, P. D. Sullivan, A. Rehman, R. Green, R. Ben-Shalom, J. LaSalle, K. S. Zarbalis"
+  venue: bioRxiv
+  year: 2025
+  date: 2025-05-11
+  status: preprint
+  topics: [Electrophysiology, HD-MEA, Gene expression]
+  url: "https://doi.org/10.1101/2025.05.07.652681"
+
+- title: "Computational modelling reveals the influence of object similarity and proximity on visually guided movements"
+  authors: "**M. Patil**, D. Heinke, F. Zhang"
+  venue: PeerJ, 13
+  year: 2025
+  date: 2025-02-25
+  status: published
+  first_author: true
+  topics: [Computational modelling, Visual attention, CORLEGO]
+  url: "https://peerj.com/articles/18953/"
+  pdf: "https://peerj.com/articles/18953.pdf"

@@ -4,45 +4,53 @@ title: Neuroengineering & ML Engineer
 page_class: home
 ---
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <p class="eyebrow"><span class="status-dot"></span> PhD, Biomedical Engineering · UC Davis</p>
-      <h1 class="display">I turn noisy <em>neural signals</em> into reliable, decision-ready data.</h1>
-      <p class="lede">I'm {{ site.author.name }}. I build scalable data and machine-learning pipelines for high-dimensional neural recordings, drawing on a background in C++ systems, automation and CI/CD.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="{{ '/work/' | relative_url }}">View my work</a>
-        <a class="btn" href="{{ '/timeline/' | relative_url }}">See the timeline</a>
-        <a class="btn btn-ghost" href="{{ site.author.cv | relative_url }}">Download CV ↓</a>
+  <canvas class="hero-scope" id="scope" aria-hidden="true"></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div class="hero-top mono">
+      <span>SESSION 2026 · DAVIS, CA</span>
+      <span class="hide-sm">FS 20 kHz · 12 CH · HOVER TO STIMULATE</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span>Mandar</span>
+      <span>Patil<i class="cursor" aria-hidden="true"></i></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-pitch">I build the pipelines that turn <mark>raw neural recordings</mark> into data you can trust, from HD-MEA arrays and EEG to production ML.</p>
+      <div class="hero-readout">
+        <dl>
+          <div><dt>Now</dt><dd>PhD, Biomedical Eng. · UC Davis</dd></div>
+          <div><dt>Focus</dt><dd>Neural data · ML systems</dd></div>
+          <div><dt>Prev</dt><dd>Bosch · Univ. of Birmingham</dd></div>
+          <div><dt>Status</dt><dd><span class="live-dot"></span>Open to roles</dd></div>
+        </dl>
+        <div class="btn-row">
+          <a class="btn btn-signal" href="{{ '/work/' | relative_url }}">View work →</a>
+          <a class="btn" href="{{ site.author.cv | relative_url }}">CV ↓</a>
+        </div>
       </div>
     </div>
-    <figure class="hero-photo">
-      <img src="{{ site.author.photo | relative_url }}" alt="Portrait of {{ site.author.name }}">
-      <figcaption>
-        <span class="chip">Neuroengineering</span>
-        <span class="chip">ML Systems</span>
-      </figcaption>
-    </figure>
+    <div class="scalebar mono" aria-hidden="true"><i></i>100 µV<b></b>10 ms</div>
   </div>
 </section>
 
-<section class="container" aria-label="At a glance">
-  <div class="stats reveal">
-    <div><strong>5+</strong><span>years across industry &amp; research</span></div>
-    <div><strong>3</strong><span>institutions: Bosch, Birmingham, UC Davis</span></div>
-    <div><strong>{{ site.work.size }}</strong><span>case studies in the portfolio</span></div>
-    <div><strong>1</strong><span>peer-reviewed publication (PeerJ)</span></div>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track mono">
+    {% for i in (1..2) %}
+    <span>HD-MEA</span><span>✦</span><span>EEG / ECoG</span><span>✦</span><span>Spike analysis</span><span>✦</span><span>Python</span><span>✦</span><span>C++</span><span>✦</span><span>HPC pipelines</span><span>✦</span><span>Machine learning</span><span>✦</span><span>CI/CD</span><span>✦</span><span>Reproducible research</span><span>✦</span>
+    {% endfor %}
   </div>
-</section>
+</div>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Portfolio</p>
-        <h2 class="section-title">Selected work</h2>
-      </div>
-      <a class="arrow-link" href="{{ '/work/' | relative_url }}">All work →</a>
-    </div>
+    <header class="section-head">
+      <p class="label"><span class="idx">01</span> Selected work</p>
+      <h2 class="section-title">Things I've shipped from signal to insight.</h2>
+      <a class="arrow-link" href="{{ '/work/' | relative_url }}">All {{ site.work.size }} projects →</a>
+    </header>
     {% assign featured = site.work | where: "featured", true | sort: "order" %}
     <div class="work-grid">
       {% for w in featured %}{% include work-card.html item=w %}{% endfor %}
@@ -50,52 +58,58 @@ page_class: home
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container split">
-    <div>
-      <p class="eyebrow">Journey</p>
-      <h2 class="section-title">From automotive C++ to neural data science</h2>
-      <p class="muted">I started by shipping production C++ and CI/CD pipelines at Bosch, moved into computational neuroscience in Birmingham, and now work on HD-MEA and EEG data at UC Davis.</p>
-      <a class="btn" href="{{ '/timeline/' | relative_url }}">Full timeline →</a>
-    </div>
-    <ol class="mini-timeline">
-      {% for e in site.data.timeline limit:5 %}
-      <li class="reveal">
-        <span class="mt-year">{{ e.year }}</span>
-        <span class="mt-dot type-{{ e.type }}"></span>
-        <div>
-          <strong>{{ e.title }}</strong>
-          <span class="muted">{{ e.org }}</span>
-        </div>
-      </li>
-      {% endfor %}
+<section class="section">
+  <div class="container">
+    <header class="section-head">
+      <p class="label"><span class="idx">02</span> Publications</p>
+      <h2 class="section-title">Published work in computational neuroscience.</h2>
+      <a class="arrow-link" href="{{ '/publications/' | relative_url }}">All papers →</a>
+    </header>
+    <ol class="pub-list">
+      {% assign total = site.data.publications.size %}{% for p in site.data.publications %}{% assign n = total | minus: forloop.index0 %}{% include pub-row.html pub=p n=n %}{% endfor %}
     </ol>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Writing</p>
-        <h2 class="section-title">Latest from the blog</h2>
+    <header class="section-head">
+      <p class="label"><span class="idx">03</span> Trajectory</p>
+      <h2 class="section-title">Automotive C++ → computational neuroscience → neural data science.</h2>
+      <a class="arrow-link" href="{{ '/timeline/' | relative_url }}">Full timeline →</a>
+    </header>
+    <div class="raster reveal">
+      {% assign tl = site.data.timeline | reverse %}
+      <div class="raster-axis mono">
+        {% for y in (2019..2026) %}<span>{{ y }}</span>{% endfor %}
       </div>
-      <a class="arrow-link" href="{{ '/blog/' | relative_url }}">All posts →</a>
-    </div>
-    <div class="post-list">
-      {% for p in site.posts limit:3 %}{% include post-row.html post=p %}{% endfor %}
+      <ol class="raster-rows">
+        {% for e in tl %}
+          {% assign x = e.year | minus: 2019 | times: 12.5 %}
+          {% assign w = 0 %}
+          {% if e.end %}
+            {% if e.end == "Present" %}{% assign ey = 2026 %}{% else %}{% assign ey = e.end | append: "" | slice: -4, 4 | plus: 0 %}{% endif %}
+            {% assign w = ey | plus: 1 | minus: e.year | times: 12.5 %}
+          {% endif %}
+          <li class="type-{{ e.type }}{% if w > 0 %} is-span{% endif %}{% if x >= 50 %} is-right{% endif %}" style="--x: {{ x }}%; --w: {{ w }}%">
+            <span class="raster-tick"></span>
+            <span class="raster-text"><strong>{{ e.title }}</strong><span class="muted"> · {{ e.org }}</span></span>
+          </li>
+        {% endfor %}
+      </ol>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="cta-card reveal">
-      <div>
-        <h2>Working on neural data, ML pipelines or research software?</h2>
-        <p>I'm always happy to talk about collaborations, roles and interesting problems.</p>
-      </div>
-      <a class="btn btn-light" href="mailto:{{ site.author.email }}">Say hello →</a>
+    <header class="section-head">
+      <p class="label"><span class="idx">04</span> Lab log</p>
+      <h2 class="section-title">Notes from the bench and the terminal.</h2>
+      <a class="arrow-link" href="{{ '/blog/' | relative_url }}">All posts →</a>
+    </header>
+    <div class="post-list">
+      {% for p in site.posts limit:3 %}{% assign n = site.posts.size | minus: forloop.index0 %}{% include post-row.html post=p index=n %}{% endfor %}
     </div>
   </div>
 </section>

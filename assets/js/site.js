@@ -5,15 +5,103 @@
 
   // ---- Theme toggle ----
   var themeBtn = document.getElementById('theme-toggle');
-  function currentTheme() {
-    return root.dataset.theme ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  }
   if (themeBtn) themeBtn.addEventListener('click', function () {
-    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    var next = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
+
+  // ---- Hero oscilloscope: scrolling multichannel traces with spikes ----
+  var canvas = document.getElementById('scope');
+  if (canvas && canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var CH = 12, STEP = 3, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W, H, N, chans = [], pointerY = -1, pointerActive = 0;
+    var SPIKE = [0, -.08, -.2, -1, -.55, .45, .35, .18, .08, 0];
+    var css = function (v) { return getComputedStyle(root).getPropertyValue(v).trim(); };
+    var colors;
+
+    function setup() {
+      var r = canvas.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      N = Math.ceil(W / STEP) + 2;
+      chans = [];
+      for (var c = 0; c < CH; c++) {
+        var ch = { data: new Float32Array(N), noise: 0, queue: [], rate: 0.004 + Math.random() * 0.01, phase: Math.random() * 6 };
+        for (var i = 0; i < N; i++) ch.data[i] = sample(ch, c);
+        chans.push(ch);
+      }
+    }
+    function sample(ch, c) {
+      ch.noise = ch.noise * 0.82 + (Math.random() - 0.5) * 0.5;
+      ch.phase += 0.09 + c * 0.004;
+      var v = ch.noise * 0.22 + Math.sin(ch.phase) * 0.05;
+      var laneY = (c + 0.5) / CH * H;
+      var near = pointerActive && Math.abs(pointerY - laneY) < H / CH * 1.6 ? 0.12 : 0;
+      if (!ch.queue.length && Math.random() < ch.rate + near) {
+        var amp = 0.7 + Math.random() * 0.6;
+        ch.queue = SPIKE.map(function (s) { return s * amp; });
+      }
+      if (ch.queue.length) v += ch.queue.shift();
+      return v;
+    }
+    function draw() {
+      colors = {
+        dim: css('--faint'), sig: css('--signal'), cyan: css('--c-cyan'), mag: css('--c-mag'),
+        line: css('--line'), muted: css('--muted')
+      };
+      ctx.clearRect(0, 0, W, H);
+      var lane = H / CH;
+      ctx.font = '10px "IBM Plex Mono", monospace';
+      for (var c = 0; c < CH; c++) {
+        var ch = chans[c], y0 = (c + 0.5) * lane, amp = lane * 0.9;
+        var col = c === 3 ? colors.sig : c === 7 ? colors.cyan : c === 10 ? colors.mag : colors.dim;
+        ctx.strokeStyle = col; ctx.lineWidth = (c === 3 || c === 7 || c === 10) ? 1.4 : 1;
+        ctx.globalAlpha = (c === 3 || c === 7 || c === 10) ? 0.95 : 0.55;
+        ctx.beginPath();
+        for (var i = 0; i < N; i++) {
+          var x = i * STEP, y = y0 + ch.data[i] * amp;
+          i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+        }
+        ctx.stroke();
+        ctx.globalAlpha = 0.7; ctx.fillStyle = colors.muted;
+        ctx.fillText('CH' + (c < 9 ? '0' : '') + (c + 1), W - 44, y0 - 6);
+      }
+      ctx.globalAlpha = 1;
+    }
+    function tick() {
+      for (var k = 0; k < 2; k++) {
+        for (var c = 0; c < CH; c++) {
+          var d = chans[c].data;
+          d.copyWithin(0, 1);
+          d[N - 1] = sample(chans[c], c);
+        }
+      }
+      draw();
+      if (running) requestAnimationFrame(tick);
+    }
+    var running = false;
+    function start() { if (!running && !reduce) { running = true; requestAnimationFrame(tick); } }
+    function stop() { running = false; }
+
+    setup(); draw();
+    var hero = canvas.parentElement;
+    hero.addEventListener('pointermove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      pointerY = e.clientY - r.top; pointerActive = 1;
+    });
+    hero.addEventListener('pointerleave', function () { pointerActive = 0; });
+    var rt;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { setup(); draw(); }, 150); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { en[0].isIntersecting ? start() : stop(); }).observe(canvas);
+    } else start();
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    if (themeBtn) themeBtn.addEventListener('click', function () { setTimeout(draw, 0); });
+  }
 
   // ---- Mobile nav ----
   var navBtn = document.getElementById('nav-toggle');

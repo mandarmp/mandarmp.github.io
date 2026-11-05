@@ -1,0 +1,21 @@
+{% assign p = include.pub %}
+<li class="pub reveal" data-status="{{ p.status }}">
+  <span class="pub-n mono">[{{ include.n }}]</span>
+  <div class="pub-body">
+    <p class="pub-meta mono">
+      <span class="pub-status is-{{ p.status }}">{% if p.status == "preprint" %}Preprint{% else %}Peer-reviewed{% endif %}</span>
+      <span>{{ p.venue }} · {{ p.year }}</span>
+      {% if p.first_author %}<span class="pub-first">First author</span>{% endif %}
+    </p>
+    <h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a></h3>
+    <p class="pub-authors">{{ p.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    <div class="pub-foot">
+      {% if p.topics %}<ul class="tag-row">{% for t in p.topics %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+      <span class="pub-links mono">
+        <a href="{{ p.url }}" target="_blank" rel="noopener">Paper ↗</a>
+        {% if p.pdf %}<a href="{{ p.pdf }}" target="_blank" rel="noopener">PDF ↗</a>{% endif %}
+        {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code ↗</a>{% endif %}
+      </span>
+    </div>
+  </div>
+</li>

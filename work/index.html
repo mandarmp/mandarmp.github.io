@@ -3,16 +3,14 @@ layout: default
 title: Work
 description: Portfolio of work samples and case studies in neural data engineering, machine learning, medical imaging and robotics.
 ---
-<section class="page-head">
-  <div class="container">
-    <p class="eyebrow">Portfolio</p>
-    <h1 class="display">Work samples &amp; case studies</h1>
-    <p class="lede">Projects across neural data engineering, machine learning, medical imaging and robotics. Each one has a short write-up: the problem, what I built, and links to code or papers.</p>
-  </div>
-</section>
-
 {% assign items = site.work | sort: "order" %}
 {% assign cats = items | map: "category" | uniq %}
+<section class="page-head container">
+  <p class="label"><span class="idx">CH01</span> Work samples &amp; case studies</p>
+  <h1 class="page-title">Recordings<sup class="mono">{{ items.size }}</sup></h1>
+  <p class="lede">Projects across neural data engineering, machine learning, medical imaging and robotics. Each one covers the problem, what I built, and links to the code or paper.</p>
+</section>
+
 <section class="container">
   <div class="filter-bar" role="toolbar" aria-label="Filter work by category" data-filter-target="#work-grid" data-filter-attr="category">
     <button type="button" class="filter is-active" data-value="all">All <span>{{ items.size }}</span></button>
