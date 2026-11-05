@@ -1,7 +1,7 @@
 ---
 title: "CoRLEGO: Modelling How Humans Reach"
-order: 2
-featured: true
+order: 5
+featured: false
 year: 2025
 category: Research
 role: First author · modelling & analysis

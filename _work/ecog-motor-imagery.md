@@ -1,6 +1,6 @@
 ---
 title: ECoG Motor Imagery Classification
-order: 3
+order: 4
 featured: true
 year: 2021
 category: Machine Learning

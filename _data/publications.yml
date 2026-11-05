@@ -22,7 +22,8 @@
   status: preprint
   topics: [Epilepsy, Mouse model, EEG]
   url: "https://doi.org/10.1101/2025.07.22.666003"
-  image: /assets/img/work/ecog.svg
+  image: /assets/img/work/raster.svg
+  project: /work/hdmea-kcnt1/
 
 - title: "Excess prenatal folic acid supplementation alters cortical gene expression networks and electrophysiology"
   authors: "V. Haghani, S. M. Ali, N. Cannizzaro, **M. Patil**, P. D. Sullivan, A. Rehman, R. Green, R. Ben-Shalom, J. LaSalle, K. S. Zarbalis"
