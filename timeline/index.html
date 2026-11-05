@@ -1,0 +1,58 @@
+---
+layout: default
+title: Timeline
+description: Career timeline for Mandar Patil, covering roles, education, research, publications and awards.
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Timeline</p>
+    <h1 class="display">The path so far</h1>
+    <p class="lede">Industry engineering, graduate study and research, newest first. Filter by type, or <a href="{{ site.author.cv | relative_url }}">download the full CV</a>.</p>
+  </div>
+</section>
+
+{% assign types = "work,education,research,publication,award" | split: "," %}
+<section class="container">
+  <div class="filter-bar" role="toolbar" aria-label="Filter timeline" data-filter-target="#timeline" data-filter-attr="type">
+    <button type="button" class="filter is-active" data-value="all">All</button>
+    {% for t in types %}
+      {% assign n = site.data.timeline | where: "type", t | size %}
+      {% if n > 0 %}<button type="button" class="filter" data-value="{{ t }}"><i class="dot type-{{ t }}"></i>{{ t | capitalize }} <span>{{ n }}</span></button>{% endif %}
+    {% endfor %}
+  </div>
+
+  <ol class="timeline" id="timeline">
+    {% assign last_year = "" %}
+    {% for e in site.data.timeline %}
+      {% assign y = e.year | append: "" %}
+      {% if y != last_year %}
+        <li class="tl-year" data-type="year"><span>{{ y }}</span></li>
+        {% assign last_year = y %}
+      {% endif %}
+      <li class="tl-item reveal" data-type="{{ e.type }}">
+        <span class="tl-dot type-{{ e.type }}" aria-hidden="true"></span>
+        <article class="tl-card">
+          <header>
+            <span class="chip type-{{ e.type }}">{{ e.type | capitalize }}</span>
+            <time>{{ e.start }}{% if e.end %} – {{ e.end }}{% endif %}</time>
+          </header>
+          <h3>{{ e.title }}</h3>
+          <p class="tl-org">{{ e.org }}{% if e.location %} · <span class="muted">{{ e.location }}</span>{% endif %}</p>
+          {% if e.summary %}<p>{{ e.summary }}</p>{% endif %}
+          {% if e.points %}
+          <details>
+            <summary>Highlights</summary>
+            <ul>{% for p in e.points %}<li>{{ p }}</li>{% endfor %}</ul>
+          </details>
+          {% endif %}
+          {% if e.tags or e.link %}
+          <footer>
+            {% if e.tags %}<ul class="tag-row">{% for t in e.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+            {% if e.link %}<a class="arrow-link" href="{{ e.link.url }}" target="_blank" rel="noopener">{{ e.link.label }} ↗</a>{% endif %}
+          </footer>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+</section>

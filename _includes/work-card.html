@@ -1,0 +1,16 @@
+{% assign w = include.item %}
+<article class="work-card reveal" data-category="{{ w.category | slugify }}">
+  <a class="work-card-link" href="{{ w.url | relative_url }}">
+    <div class="work-thumb">
+      <img src="{{ w.cover | relative_url }}" alt="{{ w.cover_alt | default: w.title }}" loading="lazy">
+      <span class="chip chip-solid">{{ w.category }}</span>
+    </div>
+    <div class="work-body">
+      <p class="eyebrow">{{ w.year }} · {{ w.role }}</p>
+      <h3>{{ w.title }}</h3>
+      <p class="muted">{{ w.summary }}</p>
+      <ul class="tag-row">{% for t in w.stack limit:4 %}<li>{{ t }}</li>{% endfor %}</ul>
+      <span class="arrow-link">Read case study <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

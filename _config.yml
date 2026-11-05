@@ -1,0 +1,58 @@
+title: Mandar Patil
+tagline: Neuroengineering & ML Engineer
+description: >-
+  Mandar Patil builds production-grade data and ML pipelines for complex neural
+  datasets, combining neuroengineering with systems engineering and automation.
+url: "https://mandarmp.github.io"
+baseurl: ""
+lang: en
+
+author:
+  name: Mandar Patil
+  email: mmpatil@health.ucdavis.edu
+  github: mandarmp
+  linkedin: patilmandarm
+  scholar: ""            # optional: full Google Scholar URL
+  cv: /uploads/Mandar_CV.pdf
+  photo: /uploads/frontal_photo.jpg
+
+# Nav order = order shown in header
+nav:
+  - { title: Work, url: /work/ }
+  - { title: Timeline, url: /timeline/ }
+  - { title: Blog, url: /blog/ }
+  - { title: About, url: /about/ }
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /blog/:year/:title/
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+collections:
+  work:
+    output: true
+    permalink: /work/:name/
+    sort_by: order
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: work }
+    values: { layout: work }
+
+feed:
+  path: blog/feed.xml
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .claude

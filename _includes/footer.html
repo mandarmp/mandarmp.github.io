@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="footer-title">Let's build something reliable.</p>
+      <p class="muted">Open to ML engineering, neural data and research-software roles.</p>
+      <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Get in touch</a>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>Site</h4>
+        <a href="{{ '/' | relative_url }}">Home</a>
+        {% for item in site.nav %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        {% include social-links.html %}
+        <a href="{{ '/blog/feed.xml' | relative_url }}">RSS feed</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-base muted">
+    <span>© {{ site.time | date: '%Y' }} {{ site.author.name }}</span>
+    <span>Built with Jekyll · Hosted on GitHub Pages</span>
+  </div>
+</footer>

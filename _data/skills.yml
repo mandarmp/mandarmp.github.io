@@ -1,0 +1,8 @@
+- group: Neural data
+  items: [HD-MEA analysis, EEG / ECoG, Spike sorting, Signal processing, Ion-channel modelling]
+- group: Machine learning
+  items: [scikit-learn, PyTorch, TensorFlow, Feature engineering, Model evaluation]
+- group: Engineering
+  items: [Python, C++, Linux, Bash, Git]
+- group: Infrastructure
+  items: [Data pipelines, HPC / SLURM, Jenkins, CI/CD, Reproducible workflows]

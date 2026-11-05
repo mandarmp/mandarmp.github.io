@@ -1,0 +1,86 @@
+# Career timeline: newest first.
+# type: one of  work | education | research | publication | award
+# Fields: start, end (or "Present"), title, org, location, summary, points[], link{label,url}, tags[]
+# Entries marked "VERIFY" have dates I inferred; please confirm them.
+
+- type: research
+  start: Apr 2025
+  end: Present
+  year: 2025
+  title: Graduate Student Research Assistant
+  org: University of California, Davis
+  location: California, USA
+  summary: Statistics & Computer Science. Research-focused computational workflows for neural and behavioural datasets.
+  points:
+    - Independently design and run computational workflows for neural and behavioural datasets.
+    - Apply statistics, machine learning and scientific programming to hypothesis-driven studies.
+    - Build reproducible analysis pipelines and visual reporting tools.
+  tags: [Python, Statistics, ML]
+
+- type: publication
+  start: 2025            # VERIFY
+  year: 2025
+  title: "CORLEGO: visual attention modelling"
+  org: PeerJ
+  summary: Peer-reviewed article on computational modelling of visual attention.
+  link: { label: Read paper, url: "https://peerj.com/articles/18953.pdf" }
+  tags: [Computational modelling]
+
+- type: education
+  start: 2024            # VERIFY
+  end: Present
+  year: 2024
+  title: PhD, Biomedical Engineering
+  org: University of California, Davis
+  location: Davis, California
+  summary: Doctoral research at the intersection of neuroengineering, neural data science and machine learning.
+  tags: [Neuroengineering, ML]
+
+- type: work
+  start: Dec 2022
+  end: Jul 2024
+  year: 2022
+  title: Computational Junior Specialist
+  org: UC Davis Health
+  location: Sacramento, California
+  summary: Processed high-density microelectrode array (HD-MEA) data and built platforms to characterise neurodevelopmental disorders.
+  points:
+    - Processed neural data from high-density microelectrode arrays for biomedical research.
+    - Built platforms to characterise neurodevelopmental disorders, focusing on autism and epilepsy.
+    - Built computational models to reverse-engineer neuronal ion channels toward personalised therapies.
+    - Analysed mouse EEG datasets to find candidate biomarkers.
+    - Used supercomputing resources to manage and analyse large-scale datasets.
+  link: { label: MEA_Analysis repo, url: "https://github.com/roybens/MEA_Analysis" }
+  tags: [HD-MEA, EEG, HPC, Python]
+
+- type: education
+  start: 2021            # VERIFY
+  end: 2022              # VERIFY
+  year: 2021
+  title: MSc Computational Neuroscience & Cognitive Robotics
+  org: University of Birmingham
+  location: Birmingham, UK
+  summary: Computational neuroscience, machine learning and robotics, including ECoG classification, cardiac MRI segmentation and robotics simulation projects.
+  tags: [Neuroscience, Robotics, ML]
+
+- type: award
+  start: 2020            # VERIFY
+  year: 2020
+  title: SPOT Award
+  org: Robert Bosch Engineering and Business Solutions
+  summary: Recognised for quickly getting up to speed on software architecture, development, testing and deployment workflows.
+
+- type: work
+  start: Sep 2019
+  end: Dec 2020
+  year: 2019
+  title: Software Engineer
+  org: Robert Bosch Engineering and Business Solutions
+  location: Bengaluru, India
+  summary: C++ modernisation and CI/CD release ownership for automotive software.
+  points:
+    - Modernised legacy modules to current C++ standards, improving quality and maintainability.
+    - Owned integrator responsibilities for critical CI/CD releases.
+    - Reduced build times through Linux and Jenkins automation.
+    - Completed the RBEI Kaushal AI certification (TensorFlow, PyTorch, scikit-learn).
+  tags: [C++, Jenkins, Linux, CI/CD]
