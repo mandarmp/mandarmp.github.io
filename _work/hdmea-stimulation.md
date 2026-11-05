@@ -4,16 +4,15 @@ order: 2
 featured: true
 year: 2025–present
 category: Neurostimulation
-role: "[Your role, e.g. stimulation protocol design & analysis]"
+role: Protocol design, closed-loop control, experiments & analysis
 context: Ben-Shalom Lab, UC Davis
-summary: Precisely activating neurons at single-cell and network level with electrical pulses on high-density microelectrode arrays, then measuring how circuits respond.
+summary: Open- and closed-loop electrical stimulation on high-density microelectrode arrays to activate neurons at single-cell and network level, then measure how circuits respond.
 cover: /assets/img/work/stim.svg
 cover_alt: Stimulation electrode on an array with spreading activation, a pulse train, and evoked spikes aligned to each pulse (illustrative)
-stack: [Python, HD-MEA, "[stimulation API / hardware]", Signal processing]
+stack: [Python, MaxWell MaxOne / MaxTwo HD-MEA, MaxLab Python API, Signal processing]
 links:
   - { label: Ben-Shalom Lab research, url: "https://benshalomlab.com/research.html" }
-result: "[e.g. Reliably evoked action potentials with X% success at single-electrode resolution; modulated network firing rate by Y%]"
-prototype_time: "[e.g. 2 weeks to first evoked response]"
+result: "Ongoing PhD project: open- and closed-loop stimulation protocols, experiments and analysis pipeline built end to end."
 ---
 
 ## Why it matters
@@ -36,13 +35,16 @@ neuromodulation devices.
   detection.
 - **Applications:** probing excitability, connectivity and plasticity in
   brain-derived cultures, including disease models.
-- **My contribution:** [describe your part: protocol design, closed-loop
-  control, artefact removal, analysis pipeline].
+- **Closed-loop control:** stimulation that adapts to ongoing neural activity
+  in real time, the same principle used in responsive neuromodulation and BCIs.
+- **My contribution:** end to end. I design the stimulation protocols, build
+  the closed-loop control, run the recording and stimulation experiments, and
+  develop the analysis pipeline (artefact removal, evoked-response detection,
+  raster and PSTH analysis).
 
-## Result
+## Status
 
-- [Key outcome or metric.]
-- [Next step, e.g. closed-loop stimulation that adapts to ongoing activity.]
+Ongoing PhD project. Results will be added here as they are published.
 
 > Project background from the
 > [Ben-Shalom Lab research page](https://benshalomlab.com/research.html).

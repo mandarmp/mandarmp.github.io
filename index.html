@@ -4,6 +4,7 @@ title: Neural Data & BCI Engineer · Rapid Prototyping
 ---
 {% capture call_url %}{% include call-url.html %}{% endcapture %}
 {% assign pubs = site.data.publications %}
+{% assign has_resume = site.static_files | where: "path", site.author.resume | size %}{% assign has_cv = site.static_files | where: "path", site.author.cv | size %}
 
 <!-- 1. Intro -->
 <section class="intro">
@@ -14,8 +15,8 @@ title: Neural Data & BCI Engineer · Rapid Prototyping
     <p class="reveal">I combine scientific depth in electrophysiology and computational neuroscience with industry engineering habits from shipping automotive C++ at <strong>Bosch</strong>: testing, CI/CD and code that other people can rely on.</p>
     <p class="availability reveal"><span class="live-dot" aria-hidden="true"></span><strong>Open to:</strong> {{ site.availability }}</p>
     <div class="intro-links reveal">
-      <a class="btn btn-primary" href="{{ call_url }}"{% if site.author.booking != "" %} target="_blank" rel="noopener"{% endif %}>Book a 20-min call</a>
-      <a class="btn" href="{{ site.author.resume | relative_url }}">Download résumé</a>
+      <a class="btn btn-primary" href="{{ call_url }}"{% if site.author.booking != "" %} target="_blank" rel="noopener"{% endif %}>{% if site.author.booking != "" %}Book a 20-min call{% else %}Get in touch{% endif %}</a>
+      {% if has_resume > 0 %}<a class="btn" href="{{ site.author.resume | relative_url }}">Download résumé</a>{% endif %}
       <a class="btn" href="mailto:{{ site.author.email }}">Email</a>
     </div>
     <p class="intro-secondary reveal">
@@ -35,7 +36,7 @@ title: Neural Data & BCI Engineer · Rapid Prototyping
   {% endfor %}
 </div>
 
-<p class="orgs reveal"><span>Experience at</span> Robert Bosch · UC Davis Health (<a href="https://benshalomlab.com/" target="_blank" rel="noopener">Ben-Shalom Lab</a>) · University of California, Davis · University of Birmingham <span class="award">SPOT Award, Bosch</span></p>
+<p class="orgs reveal"><span>Experience at</span> <span class="org-names">Robert Bosch · UC Davis Health (<a href="https://benshalomlab.com/" target="_blank" rel="noopener">Ben-Shalom Lab</a>) · University of California, Davis · University of Birmingham</span> <span class="award">SPOT Award, Bosch</span> <span class="award">Best Poster, UC Davis Neuroengineering Symposium 2025</span></p>
 
 <div class="signal" aria-hidden="true"><canvas id="signal"></canvas></div>
 
@@ -102,12 +103,12 @@ title: Neural Data & BCI Engineer · Rapid Prototyping
 <section class="contact reveal" id="contact">
   <div>
     <h2>Have a neural-data problem or a prototype to build?</h2>
-    <p>I usually reply within a day. Happy to talk consulting projects, contract work or full-time roles.</p>
+    <p>Happy to talk consulting projects, contract work or full-time roles.</p>
     <p class="muted small{% if site.author.location contains '[' %} todo{% endif %}">{{ site.author.location }}</p>
   </div>
   <div class="contact-actions">
-    <a class="btn btn-light" href="{{ call_url }}">Book a 20-min call</a>
+    <a class="btn btn-light" href="{{ call_url }}">{% if site.author.booking != "" %}Book a 20-min call{% else %}Get in touch{% endif %}</a>
     <a class="btn btn-outline-light" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
-    <a class="btn btn-outline-light" href="{{ site.author.resume | relative_url }}">Résumé (PDF)</a>
+    {% if has_resume > 0 %}<a class="btn btn-outline-light" href="{{ site.author.resume | relative_url }}">Résumé (PDF)</a>{% endif %}
   </div>
 </section>

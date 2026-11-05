@@ -3,7 +3,6 @@
 # type:  work | education | research | publication | award
 # from / to: decimal years used to draw the compact two-track chart (to: omit for single events)
 # highlight: true → shown as a featured card
-# Anything in [square brackets] is a placeholder; dates marked VERIFY were inferred.
 
 - track: science
   type: publication
@@ -35,6 +34,14 @@
   summary: How excess prenatal folic acid changes cortical gene expression networks and neuronal electrophysiology.
   link: { label: Read preprint, url: "https://doi.org/10.1101/2025.05.07.652681" }
 
+- track: science
+  type: award
+  start: May 2025
+  year: 2025
+  from: 2025.38
+  title: Best Poster Presentation
+  org: Neuroengineering Symposium, UC Davis
+
 - track: engineering
   type: research
   start: Apr 2025
@@ -46,9 +53,9 @@
   title: Graduate Student Research Assistant
   org: University of California, Davis · Ben-Shalom Lab
   location: California, USA
-  summary: Design and build reproducible computational workflows for neural data, including HD-MEA electrical-stimulation experiments that control neuronal firing.
+  summary: Design and build reproducible computational workflows for neural data, including closed-loop HD-MEA electrical stimulation that controls neuronal firing.
   points:
-    - Working on HD-MEA electrical stimulation to activate neurons at single-cell and network level and measure circuit responses.
+    - Lead HD-MEA electrical-stimulation work end to end: protocol design, closed-loop control, experiments and analysis.
     - Independently design and run computational workflows for neural and behavioural datasets.
     - Apply statistics, machine learning and scientific programming to hypothesis-driven studies.
     - Build reproducible analysis pipelines and visual reporting tools.
@@ -65,8 +72,8 @@
 
 - track: science
   type: education
-  start: 2024            # VERIFY
-  end: "Expected [20XX]"
+  start: 2024
+  end: "Expected 2027"
   year: 2024
   from: 2024.7
   to: 2026.9
@@ -87,7 +94,7 @@
   title: Computational Junior Specialist
   org: UC Davis Health · Ben-Shalom Lab
   location: Sacramento, California
-  summary: "Built the lab's HD-MEA analysis platform, used by [N] researchers across [M] studies of autism and epilepsy."
+  summary: "Built the lab's HD-MEA analysis platform, used across studies of CDKL5, KCNT1 and other neurodevelopmental disorders in mouse neurons, iPSC-derived neurons and organoids."
   points:
     - Processed high-density microelectrode array (HD-MEA) recordings at scale on supercomputing resources.
     - Built platforms to characterise neurodevelopmental disorders, focusing on autism and epilepsy.
@@ -97,8 +104,8 @@
 
 - track: science
   type: education
-  start: 2021            # VERIFY
-  end: 2022              # VERIFY
+  start: 2021
+  end: 2022
   year: 2021
   from: 2021.0
   to: 2022.7
@@ -110,7 +117,7 @@
 
 - track: engineering
   type: award
-  start: 2020            # VERIFY
+  start: 2020
   year: 2020
   from: 2020.5
   title: SPOT Award
@@ -131,8 +138,8 @@
   location: Bengaluru, India
   summary: Shipped production C++ for automotive software and owned CI/CD releases. These are the engineering habits I now bring to research code.
   metrics:
-    - { value: "[X%]", label: "Build-time reduction via Linux & Jenkins automation" }
-    - { value: "[N]", label: "Critical releases owned as integrator" }
+    - { value: "Faster builds", label: "Linux & Jenkins build automation" }
+    - { value: "Release owner", label: "Integrator for critical CI/CD releases" }
     - { value: "SPOT", label: "Award for rapid ramp-up" }
   points:
     - Modernised legacy modules to current C++ standards, improving quality and maintainability.

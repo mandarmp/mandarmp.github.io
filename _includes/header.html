@@ -1,3 +1,4 @@
+{% assign has_resume = site.static_files | where: "path", site.author.resume | size %}{% assign has_cv = site.static_files | where: "path", site.author.cv | size %}
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="{{ '/' | relative_url }}">{{ site.author.name }}</a>
@@ -5,8 +6,8 @@
       {% for item in site.nav %}
         <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {% endfor %}
-      <a href="{{ site.author.resume | relative_url }}">Résumé</a>
-      <a class="nav-cta" href="{% include call-url.html %}">Book a call</a>
+      {% if has_resume > 0 %}<a href="{{ site.author.resume | relative_url }}">Résumé</a>{% endif %}
+      <a class="nav-cta" href="{% include call-url.html %}">{% if site.author.booking != "" %}Book a call{% else %}Get in touch{% endif %}</a>
     </nav>
     <div class="header-actions">
       <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">

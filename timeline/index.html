@@ -3,9 +3,10 @@ layout: default
 title: Experience
 description: Two-track career timeline for Mandar Patil, combining industry engineering (Bosch, UC Davis Health) and science (MSc Birmingham, PhD UC Davis, publications).
 ---
+{% assign has_resume = site.static_files | where: "path", site.author.resume | size %}{% assign has_cv = site.static_files | where: "path", site.author.cv | size %}
 <header class="page-head">
   <h1 class="reveal">Experience</h1>
-  <p class="lead reveal">Two tracks that converge: production engineering on one side, neuroscience research on the other. Since 2022 I've combined both, building engineering-grade tools for neural data. Download the <a href="{{ site.author.resume | relative_url }}">1-page résumé</a> or the <a href="{{ site.author.cv | relative_url }}">full CV</a>.</p>
+  <p class="lead reveal">Two tracks that converge: production engineering on one side, neuroscience research on the other. Since 2022 I've combined both, building engineering-grade tools for neural data.{% if has_resume > 0 %} Download the <a href="{{ site.author.resume | relative_url }}">1-page résumé</a>{% if has_cv > 0 %} or the <a href="{{ site.author.cv | relative_url }}">full CV</a>{% endif %}.{% elsif has_cv > 0 %} Download the <a href="{{ site.author.cv | relative_url }}">full CV</a>.{% endif %}</p>
 </header>
 
 {% include tracks.html %}

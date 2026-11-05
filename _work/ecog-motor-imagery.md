@@ -12,8 +12,7 @@ cover_alt: Stacked multichannel neural traces with a highlighted burst window
 stack: [Python, scikit-learn, SciPy, Signal processing]
 links:
   - { label: View repository, url: "https://github.com/mandarmp/nma_motor_imagery" }
-result: "[Decoded imagined movements with X% held-out accuracy across N subjects]"
-prototype_time: "[e.g. 2 weeks]"
+result: "End-to-end ECoG decoding pipeline, from raw signals to classified imagined movements, with leakage-safe validation."
 ---
 
 ## Goal

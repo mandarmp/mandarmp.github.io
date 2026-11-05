@@ -1,10 +1,9 @@
 # Industry-facing toolkit. Keep only what you have actually used.
-# Items in [brackets] are suggestions to confirm or delete.
 - group: Languages & core
   items: [Python, C++ (modern), Bash, Git, Linux]
 - group: Neural data & signals
-  items: [HD-MEA analysis, EEG / ECoG, Signal processing, HD-MEA electrical stimulation, "[MNE-Python]", "[SpikeInterface]", "[Kilosort]", "[Phy]"]
+  items: [HD-MEA analysis, EEG / ECoG, Signal processing, HD-MEA electrical stimulation, MNE-Python, SpikeInterface, Kilosort, Phy]
 - group: Machine learning
   items: [scikit-learn, PyTorch, TensorFlow, Feature engineering, Model validation]
 - group: Engineering & delivery
-  items: [CI/CD (Jenkins), HPC / batch processing, Reproducible pipelines, "[Docker]", "[Streamlit / Dash]", "[LSL / BrainFlow]"]
+  items: [CI/CD (Jenkins), HPC / batch processing, Reproducible pipelines, Docker, Streamlit / Dash]

@@ -12,8 +12,7 @@ cover_alt: Occupancy grid with a planned robot path
 stack: [Python, Robotics simulation, Networking]
 links:
   - { label: View repository, url: "https://github.com/mandarmp/Intelligent-robotics-simulation" }
-result: "[e.g. Supported N simulated robots at X Hz with modular, swappable components]"
-prototype_time: "[e.g. 3 weeks]"
+result: "A modular server linking simulated robots with control and planning components, so experiments can be swapped without rewiring."
 ---
 
 ## Overview

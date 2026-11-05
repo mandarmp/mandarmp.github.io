@@ -51,22 +51,19 @@ bundle install
 bundle exec jekyll serve --livereload
 ```
 
-## TODO: fill in before going live
+## Still to add (optional)
 
-Placeholders are written in `[square brackets]` and show up highlighted in amber
-on the site. Find them all with `grep -rn "\[" _config.yml _data _work`.
+- **Résumé / CV:** add `uploads/Mandar_Resume.pdf` and `uploads/Mandar_CV.pdf`. The Résumé and CV
+  buttons appear automatically once the files exist.
+- **Booking link:** set `booking:` in `_config.yml` (e.g. a Calendly URL). "Get in touch" then becomes
+  "Book a 20-min call".
+- **Real figures:** replace the illustrative covers in `assets/img/work/` with real figures or
+  screenshots (`cover:` / `gallery:` in `_work/*.md`). With your PI's OK, the Ben-Shalom Lab figures are at:
+  - `https://benshalomlab.com/images/research/meapipeline.png` (HD-MEA case study)
+  - `https://benshalomlab.com/images/neuron11_cropped.gif` (HD-MEA case study)
+  - `https://benshalomlab.com/images/research/stim.png` (stimulation case study)
+- **Stimulation results:** update `_work/hdmea-stimulation.md` when results are published.
+- **Testimonials / talks:** add to `_data/testimonials.yml` and `_data/talks.yml`. The sections appear automatically.
+- **Writing samples:** finish the outlines in `_drafts/` and move them to `_posts/`.
 
-- [ ] `_config.yml`: `phd_expected`, `location` (remote/relocation), `booking` (Calendly link, optional)
-- [ ] Upload `uploads/Mandar_Resume.pdf` (1-page industry résumé) and `uploads/Mandar_CV.pdf`
-- [ ] `_data/stats.yml`: the "[X TB] neural data processed" stat
-- [ ] `_data/timeline.yml`: Bosch metrics (build-time reduction %, releases owned), UC Davis Health adoption numbers, `VERIFY` dates
-- [ ] `_work/*.md`: `result` and `prototype_time` for each project, plus real figures/screenshots (`cover`, `gallery`)
-- [ ] `_data/skills.yml`: confirm or delete the bracketed tools
-- [ ] `_data/testimonials.yml`, `_data/talks.yml`: add entries (sections appear automatically)
-- [ ] Ben-Shalom Lab figures: the lab site was unreachable from the build environment, so these are not copied yet. With your PI's OK, save them into `uploads/` and point `cover:` / `gallery:` at them:
-  - `https://benshalomlab.com/images/research/meapipeline.png` → HD-MEA case study (`_work/mea-analysis.md`)
-  - `https://benshalomlab.com/images/neuron11_cropped.gif` → MEA case study (`_work/mea-analysis.md`)
-  - `https://benshalomlab.com/images/research/stim.png` → stimulation case study (`_work/hdmea-stimulation.md`)
-  - `https://benshalomlab.com/images/team/mandar.jpg` → alternative headshot
-- [ ] `_work/hdmea-stimulation.md`: fill in your role, contribution and results
-- [ ] `_drafts/`: finish the BCI-landscape and real-time-decoder posts
+Placeholders written in `[square brackets]` are highlighted in amber on the site.

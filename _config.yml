@@ -18,11 +18,11 @@ author:
   github: mandarmp
   linkedin: patilmandarm
   scholar: "https://scholar.google.com/citations?user=DeOelU8AAAAJ&hl=en"
-  phd_expected: "[20XX]"           # e.g. "Fall 2027"
+  phd_expected: "2027"
   booking: ""                      # e.g. "https://calendly.com/you/20min". Empty = email link
   resume: /uploads/Mandar_Resume.pdf   # 1-page industry résumé (upload this file)
   cv: /uploads/Mandar_CV.pdf           # full academic CV (upload this file)
-  location: "Davis, California · [open to remote / relocation?]"
+  location: "Davis, California · Open to relocation"
   photo: /uploads/frontal_photo.jpg
 
 availability: "Scientific consulting · Contract prototyping · Full-time BCI / neurotech roles"
