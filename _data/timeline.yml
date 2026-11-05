@@ -1,0 +1,140 @@
+# Experience timeline: newest first.
+# track: engineering | science      (which side of the two-track timeline)
+# type:  work | education | research | publication | award
+# from / to: decimal years used to draw the compact two-track chart (to: omit for single events)
+# highlight: true → shown as a featured card
+# Anything in [square brackets] is a placeholder; dates marked VERIFY were inferred.
+
+- track: science
+  type: publication
+  start: May 2026
+  year: 2026
+  from: 2026.4
+  title: "Cortical organoid model of PPP2R5D intellectual disability"
+  org: bioRxiv preprint · UC Davis (Fink & Ben-Shalom labs)
+  summary: Cerebral cortical-like organoids showing variant-specific disease severity phenotypes.
+  link: { label: Read preprint, url: "https://www.semanticscholar.org/paper/0b7e19b06aef3ee25ee4897791373bb39e1834b9" }
+
+- track: science
+  type: publication
+  start: Jul 2025
+  year: 2025
+  from: 2025.55
+  title: "Gain-of-function mouse model of KCNT1-related epilepsy"
+  org: bioRxiv preprint · UC Davis (Silverman & Ben-Shalom labs)
+  summary: A novel mouse model for KCNT1-related epilepsy.
+  link: { label: Read preprint, url: "https://doi.org/10.1101/2025.07.22.666003" }
+
+- track: science
+  type: publication
+  start: May 2025
+  year: 2025
+  from: 2025.35
+  title: "Prenatal folic acid excess alters cortical gene networks & electrophysiology"
+  org: bioRxiv preprint · UC Davis (LaSalle, Zarbalis & Ben-Shalom labs)
+  summary: How excess prenatal folic acid changes cortical gene expression networks and neuronal electrophysiology.
+  link: { label: Read preprint, url: "https://doi.org/10.1101/2025.05.07.652681" }
+
+- track: engineering
+  type: research
+  start: Apr 2025
+  end: Present
+  year: 2025
+  from: 2025.25
+  to: 2026.9
+  label: Graduate Student Researcher
+  title: Graduate Student Research Assistant
+  org: University of California, Davis
+  location: California, USA
+  summary: Statistics & computer science. Design and build reproducible computational workflows for neural and behavioural datasets.
+  points:
+    - Independently design and run computational workflows for neural and behavioural datasets.
+    - Apply statistics, machine learning and scientific programming to hypothesis-driven studies.
+    - Build reproducible analysis pipelines and visual reporting tools.
+
+- track: science
+  type: publication
+  start: Feb 2025
+  year: 2025
+  from: 2025.15
+  title: "First-author paper in PeerJ: modelling visually guided movements"
+  org: PeerJ 13 · with D. Heinke & F. Zhang (Univ. of Birmingham)
+  summary: "Computational modelling reveals the influence of object similarity and proximity on visually guided movements."
+  link: { label: Read paper, url: "https://peerj.com/articles/18953/" }
+
+- track: science
+  type: education
+  start: 2024            # VERIFY
+  end: "Expected [20XX]"
+  year: 2024
+  from: 2024.7
+  to: 2026.9
+  label: PhD, Biomedical Engineering
+  title: PhD, Biomedical Engineering
+  org: University of California, Davis
+  location: Davis, California
+  summary: Doctoral research at the intersection of neuroengineering, neural data science and machine learning.
+
+- track: engineering
+  type: work
+  start: Dec 2022
+  end: Jul 2024
+  year: 2022
+  from: 2022.95
+  to: 2024.55
+  label: UC Davis Health
+  title: Computational Junior Specialist
+  org: UC Davis Health
+  location: Sacramento, California
+  summary: "Built the lab's HD-MEA analysis platform, used by [N] researchers across [M] studies of autism and epilepsy."
+  points:
+    - Processed high-density microelectrode array (HD-MEA) recordings at scale on supercomputing resources.
+    - Built platforms to characterise neurodevelopmental disorders, focusing on autism and epilepsy.
+    - Built computational models of neuronal ion channels toward personalised therapies.
+    - Analysed mouse EEG datasets to find candidate biomarkers.
+  link: { label: MEA_Analysis repo, url: "https://github.com/roybens/MEA_Analysis" }
+
+- track: science
+  type: education
+  start: 2021            # VERIFY
+  end: 2022              # VERIFY
+  year: 2021
+  from: 2021.0
+  to: 2022.7
+  label: MSc, Univ. of Birmingham
+  title: MSc Computational Neuroscience & Cognitive Robotics
+  org: University of Birmingham
+  location: Birmingham, UK
+  summary: Computational neuroscience, machine learning and robotics. Projects in ECoG decoding, cardiac MRI segmentation and robotics simulation.
+
+- track: engineering
+  type: award
+  start: 2020            # VERIFY
+  year: 2020
+  from: 2020.5
+  title: SPOT Award
+  org: Robert Bosch Engineering and Business Solutions
+  summary: Recognised for getting up to speed quickly on software architecture, development, testing and deployment.
+
+- track: engineering
+  type: work
+  highlight: true
+  start: Sep 2019
+  end: Dec 2020
+  year: 2019
+  from: 2019.7
+  to: 2020.95
+  label: Bosch
+  title: Software Engineer
+  org: Robert Bosch Engineering and Business Solutions
+  location: Bengaluru, India
+  summary: Shipped production C++ for automotive software and owned CI/CD releases. These are the engineering habits I now bring to research code.
+  metrics:
+    - { value: "[X%]", label: "Build-time reduction via Linux & Jenkins automation" }
+    - { value: "[N]", label: "Critical releases owned as integrator" }
+    - { value: "SPOT", label: "Award for rapid ramp-up" }
+  points:
+    - Modernised legacy modules to current C++ standards, improving quality and maintainability.
+    - Owned integrator responsibilities for critical CI/CD releases.
+    - Reduced build times through Linux and Jenkins automation.
+    - Completed the RBEI Kaushal AI certification (TensorFlow, PyTorch, scikit-learn).

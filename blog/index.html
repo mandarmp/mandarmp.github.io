@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog
+description: Writing on neural data engineering, machine learning in practice and research software.
+---
+{% assign all_tags = "" | split: "" %}
+{% for p in site.posts %}{% assign all_tags = all_tags | concat: p.tags %}{% endfor %}
+{% assign all_tags = all_tags | uniq | sort %}
+<header class="page-head">
+  <h1 class="reveal">Technical notes</h1>
+  <p class="lead reveal">Short write-ups on neural data engineering, real-time decoding, ML in practice and the neurotech landscape. <a href="{{ '/blog/feed.xml' | relative_url }}">RSS feed</a>.</p>
+</header>
+
+<div class="blog-tools">
+  <input type="search" id="post-search" class="search" placeholder="Search posts" aria-label="Search posts" autocomplete="off">
+  <div class="filter-bar" role="toolbar" aria-label="Filter by tag" data-filter-target="#posts" data-filter-attr="tags" data-filter-mode="contains" data-filter-param="tag">
+    <button type="button" class="filter is-active" data-value="all">All</button>
+    {% for t in all_tags %}<button type="button" class="filter" data-value="{{ t | slugify }}">{{ t }}</button>{% endfor %}
+  </div>
+</div>
+<div class="post-list" id="posts">
+  {% for p in site.posts %}{% include post-row.html post=p %}{% endfor %}
+</div>
+<p class="empty-state muted" hidden>No posts match your search.</p>

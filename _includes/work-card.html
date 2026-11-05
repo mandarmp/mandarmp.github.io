@@ -1,0 +1,13 @@
+{% assign w = include.item %}
+<article class="card reveal" data-category="{{ w.category | slugify }}">
+  <a class="card-link" href="{{ w.url | relative_url }}">
+    <div class="card-img"><img src="{{ w.cover | relative_url }}" alt="{{ w.cover_alt | default: w.title }}" loading="lazy"></div>
+    <div class="card-body">
+      <p class="meta">{{ w.category }} · {{ w.year }}</p>
+      <h3>{{ w.title }}</h3>
+      <p>{{ w.summary }}</p>
+      {% if w.result %}<p class="result{% if w.result contains '[' %} todo{% endif %}"><span>Result</span>{{ w.result }}</p>{% endif %}
+      <span class="more">Read case study <span aria-hidden="true">→</span></span>
+    </div>
+  </a>
+</article>

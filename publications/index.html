@@ -1,0 +1,28 @@
+---
+layout: default
+title: Publications
+description: Peer-reviewed papers and preprints by Mandar Patil in computational neuroscience, electrophysiology and neurodevelopmental disorders.
+---
+{% assign pubs = site.data.publications %}
+{% assign n_pub = pubs | where: "status", "published" | size %}
+{% assign n_pre = pubs | where: "status", "preprint" | size %}
+<header class="page-head">
+  <h1 class="reveal">Publications</h1>
+  <p class="lead reveal">Peer-reviewed articles and preprints. For the most up-to-date list, see my <a href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar profile</a>.</p>
+</header>
+
+<div class="filter-bar" role="toolbar" aria-label="Filter publications" data-filter-target="#pubs" data-filter-attr="status">
+  <button type="button" class="filter is-active" data-value="all">All ({{ pubs.size }})</button>
+  <button type="button" class="filter" data-value="published">Peer-reviewed ({{ n_pub }})</button>
+  <button type="button" class="filter" data-value="preprint">Preprints ({{ n_pre }})</button>
+</div>
+
+{% assign years = pubs | map: "year" | uniq %}
+<ol class="pub-list" id="pubs">
+  {% for y in years %}
+    <li class="tl-year pub-year">{{ y }}</li>
+    {% assign ys = pubs | where: 'year', y %}
+    {% for p in ys %}{% include pub-row.html pub=p %}{% endfor %}
+  {% endfor %}
+</ol>
+<p class="note muted">* Thumbnails are illustrative.</p>

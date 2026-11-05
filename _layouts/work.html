@@ -1,0 +1,71 @@
+---
+layout: default
+---
+<article class="article">
+  <a class="back-link" href="{{ '/work/' | relative_url }}">← Projects</a>
+  <header class="article-head">
+    <p class="kicker reveal">{{ page.category }} · {{ page.year }}</p>
+    <h1 class="reveal">{{ page.title }}</h1>
+    <p class="lead reveal">{{ page.summary }}</p>
+    {% if page.result %}
+    <div class="result-callout reveal{% if page.result contains '[' %} todo{% endif %}">
+      <span>Result</span>
+      <p>{{ page.result }}</p>
+    </div>
+    {% endif %}
+    <dl class="facts reveal">
+      {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+      {% if page.context %}<div><dt>Client / context</dt><dd>{{ page.context }}</dd></div>{% endif %}
+      {% if page.prototype_time %}<div><dt>Time to first prototype</dt><dd{% if page.prototype_time contains '[' %} class="todo"{% endif %}>{{ page.prototype_time }}</dd></div>{% endif %}
+      {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
+    </dl>
+    {% if page.links %}
+    <div class="intro-links reveal">
+      {% for l in page.links %}<a class="btn {% if forloop.first %}btn-primary{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <figure class="figure reveal">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+    <figcaption>{{ page.cover_alt | default: page.title }}</figcaption>
+  </figure>
+
+  {% if page.metrics %}
+  <div class="metrics reveal">
+    {% for m in page.metrics %}<div><strong>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if page.gallery %}
+  <h2 class="section-h">Figures</h2>
+  <div class="gallery">
+    {% for g in page.gallery %}
+    <figure class="reveal">
+      <button class="gallery-item" type="button" data-full="{{ g.src | relative_url }}" data-caption="{{ g.caption }}">
+        <img src="{{ g.src | relative_url }}" alt="{{ g.caption }}" loading="lazy">
+      </button>
+      {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+
+{% assign others = site.work | where_exp: "w", "w.url != page.url" | sample: 3 %}
+<section class="block related">
+  <div class="block-head"><h2>More projects</h2><a class="text-link" href="{{ '/work/' | relative_url }}">All projects →</a></div>
+  <div class="card-grid">
+    {% for w in others %}{% include work-card.html item=w %}{% endfor %}
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="icon-btn lightbox-close" type="button" aria-label="Close">✕</button>
+  <img alt="">
+  <p class="lightbox-caption"></p>
+</dialog>

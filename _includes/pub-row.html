@@ -1,0 +1,20 @@
+{% assign p = include.pub %}
+<li class="pub reveal" data-status="{{ p.status }}">
+  {% if p.image %}
+  <a class="pub-thumb" href="{{ p.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+    <img src="{{ p.image | relative_url }}" alt="" loading="lazy">
+    <span class="badge {% if p.status == 'preprint' %}badge-muted{% endif %}">{% if p.status == "preprint" %}Preprint{% else %}{{ p.venue | split: "," | first }}{% endif %}</span>
+  </a>
+  {% endif %}
+  <div class="pub-body">
+    <h3><a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.title }}</a></h3>
+    <p class="pub-authors">{{ p.authors | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    <p class="pub-venue"><em>{{ p.venue }}</em>, {{ p.year }}{% if p.first_author %} <span class="pill">First author</span>{% endif %}</p>
+    <p class="pub-links">
+      <a href="{{ p.url }}" target="_blank" rel="noopener">Paper</a>
+      {% if p.pdf %}<a href="{{ p.pdf }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+      {% if p.code %}<a href="{{ p.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+      {% if p.project %}<a href="{{ p.project | relative_url }}">Project page</a>{% endif %}
+    </p>
+  </div>
+</li>

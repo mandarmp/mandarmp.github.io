@@ -1,0 +1,69 @@
+title: Mandar Patil
+tagline: Neural Data & BCI Engineer · Rapid Prototyping
+description: >-
+  Biomedical engineering PhD candidate who builds production-grade tools for
+  neural data: biosignal pipelines, ML for EEG/ECoG/MEA, and rapid prototyping.
+  Open to scientific consulting, contract prototyping and BCI / neurotech roles.
+url: "https://mandarmp.github.io"
+baseurl: ""
+lang: en
+
+# ---------------------------------------------------------------------------
+# Anything in [square brackets] is a placeholder. It is highlighted in amber
+# on the site until you replace it. Search the repo for "[" to find them all.
+# ---------------------------------------------------------------------------
+author:
+  name: Mandar Patil
+  email: mmpatil@health.ucdavis.edu
+  github: mandarmp
+  linkedin: patilmandarm
+  scholar: "https://scholar.google.com/citations?user=DeOelU8AAAAJ&hl=en"
+  phd_expected: "[20XX]"           # e.g. "Fall 2027"
+  booking: ""                      # e.g. "https://calendly.com/you/20min". Empty = email link
+  resume: /uploads/Mandar_Resume.pdf   # 1-page industry résumé (upload this file)
+  cv: /uploads/Mandar_CV.pdf           # full academic CV (upload this file)
+  location: "Davis, California · [open to remote / relocation?]"
+  photo: /uploads/frontal_photo.jpg
+
+availability: "Scientific consulting · Contract prototyping · Full-time BCI / neurotech roles"
+
+# Nav order = order shown in header
+nav:
+  - { title: Work, url: /work/ }
+  - { title: Experience, url: /timeline/ }
+  - { title: Publications, url: /publications/ }
+  - { title: Notes, url: /blog/ }
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /blog/:year/:title/
+timezone: America/Los_Angeles
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+collections:
+  work:
+    output: true
+    permalink: /work/:name/
+    sort_by: order
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: work }
+    values: { layout: work }
+
+feed:
+  path: blog/feed.xml
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .claude

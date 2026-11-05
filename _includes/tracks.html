@@ -1,0 +1,29 @@
+{%- comment -%}
+  Compact two-track chart: Engineering vs Science, 2019 → now.
+  Positions come from `from` / `to` (decimal years) in _data/timeline.yml.
+{%- endcomment -%}
+{% assign y0 = 2019 %}{% assign span = 8.0 %}
+<div class="tracks reveal">
+  <div class="tracks-axis" aria-hidden="true">
+    {% for y in (2019..2026) %}<span>{{ y }}</span>{% endfor %}
+  </div>
+  {% assign lanes = "engineering,science" | split: "," %}
+  {% for lane in lanes %}
+  <div class="track track-{{ lane }}">
+    <span class="track-name">{% if lane == "engineering" %}Engineering{% else %}Science{% endif %}</span>
+    <div class="track-lane">
+      {% assign items = site.data.timeline | where: "track", lane | reverse %}
+      {% for e in items %}
+        {% assign l = e.from | minus: y0 | divided_by: span | times: 100 %}
+        {% if e.to %}
+          {% assign w = e.to | minus: e.from | divided_by: span | times: 100 %}
+          <span class="seg{% if e.highlight %} is-key{% endif %}" style="left: {{ l }}%; width: {{ w }}%" title="{{ e.title }} · {{ e.org }}">{{ e.label | default: e.title }}</span>
+        {% else %}
+          <span class="pin type-{{ e.type }}" style="left: {{ l }}%" title="{{ e.title }}"></span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="tracks-merge" aria-hidden="true"><span>2022 → now: both tracks combined in neural data engineering</span></div>
+</div>
