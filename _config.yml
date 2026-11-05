@@ -18,11 +18,10 @@ author:
 
 # Nav order = order shown in header
 nav:
-  - { title: Work, url: /work/ }
-  - { title: Papers, url: /publications/ }
+  - { title: Publications, url: /publications/ }
+  - { title: Projects, url: /work/ }
   - { title: Timeline, url: /timeline/ }
   - { title: Blog, url: /blog/ }
-  - { title: About, url: /about/ }
 
 markdown: kramdown
 highlighter: rouge

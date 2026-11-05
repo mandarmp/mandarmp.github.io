@@ -2,13 +2,10 @@
 {% assign words = p.content | strip_html | number_of_words %}
 {% assign mins = words | divided_by: 200 | plus: 1 %}
 <article class="post-row reveal" data-tags="{% for t in p.tags %}{{ t | slugify }} {% endfor %}">
-  <a href="{{ p.url | relative_url }}">
-    <span class="post-idx mono">LOG {{ include.index | default: 1 | prepend: '00' | slice: -3, 3 }}</span>
-    <time class="mono" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y.%m.%d" }}</time>
-    <span class="post-main">
-      <span class="post-title">{{ p.title }}</span>
-      <span class="muted post-excerpt">{{ p.excerpt | strip_html | truncatewords: 26 }}</span>
-    </span>
-    <span class="post-meta mono">{{ mins }} min{% for t in p.tags %} · #{{ t }}{% endfor %}</span>
-  </a>
+  <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
+  <div>
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p>{{ p.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="meta">{{ mins }} min read{% for t in p.tags %} · {{ t }}{% endfor %}</p>
+  </div>
 </article>

@@ -1,7 +1,7 @@
 # mandarmp.github.io
 
 Personal site of Mandar Patil: portfolio, publications, career timeline and blog.
-Design language: an electrophysiology "recording" (oscilloscope hero, channel labels, raster timeline). Dark by default, light chart-paper mode on toggle.
+Design: clean academic layout (Source Serif 4 + Source Sans 3, navy accent) with subtle motion: scroll fade-ins, hover effects and a quiet animated signal trace. Light by default; dark follows the system or the toggle.
 Built with Jekyll and deployed automatically by GitHub Pages. No build step is needed on your side.
 
 ## Structure
@@ -13,7 +13,8 @@ Built with Jekyll and deployed automatically by GitHub Pages. No build step is n
 | Publications | `_data/publications.yml` | One entry per paper; wrap your name in `**` to highlight it |
 | Timeline | `_data/timeline.yml` | One YAML entry per role, degree, paper or award |
 | Blog posts | `_posts/YYYY-MM-DD-slug.md` | Copy `_drafts/post-template.md` |
-| About + skills | `about/index.html`, `_data/skills.yml` | |
+| News (home page) | `_data/news.yml` | Short dated updates, newest first |
+| Bio + skills | `index.html`, `_data/skills.yml` | |
 | Name, email, socials, CV path | `_config.yml` → `author:` | |
 | Styles / scripts | `assets/css/site.css`, `assets/js/site.js` | |
 

@@ -1,76 +1,64 @@
 ---
 layout: default
 ---
-<article class="case">
-  <header class="case-hero container">
-    <a class="back-link mono" href="{{ '/work/' | relative_url }}">← INDEX / WORK</a>
-    <p class="label"><span class="idx">REC-{% if page.order < 10 %}0{% endif %}{{ page.order }}</span> {{ page.category }} · {{ page.year }}</p>
-    <h1 class="page-title">{{ page.title }}</h1>
-    <p class="lede">{{ page.summary }}</p>
-    <dl class="spec">
+<article class="article">
+  <a class="back-link" href="{{ '/work/' | relative_url }}">← Projects</a>
+  <header class="article-head">
+    <p class="kicker reveal">{{ page.category }} · {{ page.year }}</p>
+    <h1 class="reveal">{{ page.title }}</h1>
+    <p class="lead reveal">{{ page.summary }}</p>
+    <dl class="facts reveal">
       {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
       {% if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
-      <div><dt>Year</dt><dd>{{ page.year }}</dd></div>
-      {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: " / " }}</dd></div>{% endif %}
+      {% if page.stack %}<div><dt>Tools</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
     </dl>
     {% if page.links %}
-    <div class="btn-row">
-      {% for l in page.links %}<a class="btn {% if forloop.first %}btn-signal{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
+    <div class="intro-links reveal">
+      {% for l in page.links %}<a class="btn {% if forloop.first %}btn-primary{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% endfor %}
     </div>
     {% endif %}
   </header>
 
-  <div class="container">
-    <figure class="case-cover frame">
-      <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
-      <figcaption class="mono">FIG. 1 · {{ page.cover_alt | default: page.title }}</figcaption>
-    </figure>
-  </div>
+  <figure class="figure reveal">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">
+    <figcaption>{{ page.cover_alt | default: page.title }}</figcaption>
+  </figure>
 
   {% if page.metrics %}
-  <div class="container">
-    <div class="metrics">
-      {% for m in page.metrics %}<div class="metric"><strong>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}
-    </div>
+  <div class="metrics reveal">
+    {% for m in page.metrics %}<div><strong>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}
   </div>
   {% endif %}
 
-  <div class="container case-body">
-    <aside class="case-aside mono" aria-hidden="true">
-      <span>NOTES</span>
-    </aside>
-    <div class="prose">
-      {{ content }}
-    </div>
+  <div class="prose">
+    {{ content }}
   </div>
 
   {% if page.gallery %}
-  <section class="container case-gallery">
-    <p class="label"><span class="idx">↳</span> Work samples</p>
-    <div class="gallery">
-      {% for g in page.gallery %}
-      <figure>
-        <button class="gallery-item frame" type="button" data-full="{{ g.src | relative_url }}" data-caption="{{ g.caption }}">
-          <img src="{{ g.src | relative_url }}" alt="{{ g.caption }}" loading="lazy">
-        </button>
-        {% if g.caption %}<figcaption class="mono">FIG. {{ forloop.index | plus: 1 }} · {{ g.caption }}</figcaption>{% endif %}
-      </figure>
-      {% endfor %}
-    </div>
-  </section>
+  <h2 class="section-h">Figures</h2>
+  <div class="gallery">
+    {% for g in page.gallery %}
+    <figure class="reveal">
+      <button class="gallery-item" type="button" data-full="{{ g.src | relative_url }}" data-caption="{{ g.caption }}">
+        <img src="{{ g.src | relative_url }}" alt="{{ g.caption }}" loading="lazy">
+      </button>
+      {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
   {% endif %}
-
-  {% assign others = site.work | where_exp: "w", "w.url != page.url" | sample: 2 %}
-  <section class="container more-work">
-    <p class="label"><span class="idx">→</span> Next recordings</p>
-    <div class="work-grid two">
-      {% for w in others %}{% include work-card.html item=w %}{% endfor %}
-    </div>
-  </section>
 </article>
+
+{% assign others = site.work | where_exp: "w", "w.url != page.url" | sample: 3 %}
+<section class="block related">
+  <div class="block-head"><h2>More projects</h2><a class="text-link" href="{{ '/work/' | relative_url }}">All projects →</a></div>
+  <div class="card-grid">
+    {% for w in others %}{% include work-card.html item=w %}{% endfor %}
+  </div>
+</section>
 
 <dialog class="lightbox" id="lightbox">
   <button class="icon-btn lightbox-close" type="button" aria-label="Close">✕</button>
   <img alt="">
-  <p class="lightbox-caption mono"></p>
+  <p class="lightbox-caption"></p>
 </dialog>

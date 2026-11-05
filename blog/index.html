@@ -3,29 +3,22 @@ layout: default
 title: Blog
 description: Writing on neural data engineering, machine learning in practice and research software.
 ---
-<section class="page-head container">
-  <p class="label"><span class="idx">CH04</span> Blog</p>
-  <h1 class="page-title">Lab log</h1>
-  <p class="lede">Notes on neural data engineering, ML in practice and research software. <a href="{{ '/blog/feed.xml' | relative_url }}">Subscribe via RSS</a>.</p>
-</section>
-
 {% assign all_tags = "" | split: "" %}
 {% for p in site.posts %}{% assign all_tags = all_tags | concat: p.tags %}{% endfor %}
 {% assign all_tags = all_tags | uniq | sort %}
-<section class="container">
-  <div class="blog-tools">
-    <label class="search">
-      <span class="mono" aria-hidden="true">grep&gt;</span>
-      <span class="visually-hidden">Search posts</span>
-      <input type="search" id="post-search" placeholder="search posts" autocomplete="off">
-    </label>
-    <div class="filter-bar" role="toolbar" aria-label="Filter by tag" data-filter-target="#posts" data-filter-attr="tags" data-filter-mode="contains" data-filter-param="tag">
-      <button type="button" class="filter is-active" data-value="all">All</button>
-      {% for t in all_tags %}<button type="button" class="filter" data-value="{{ t | slugify }}">#{{ t }}</button>{% endfor %}
-    </div>
+<header class="page-head">
+  <h1 class="reveal">Blog</h1>
+  <p class="lead reveal">Notes on neural data engineering, machine learning in practice and research software. <a href="{{ '/blog/feed.xml' | relative_url }}">RSS feed</a>.</p>
+</header>
+
+<div class="blog-tools">
+  <input type="search" id="post-search" class="search" placeholder="Search posts" aria-label="Search posts" autocomplete="off">
+  <div class="filter-bar" role="toolbar" aria-label="Filter by tag" data-filter-target="#posts" data-filter-attr="tags" data-filter-mode="contains" data-filter-param="tag">
+    <button type="button" class="filter is-active" data-value="all">All</button>
+    {% for t in all_tags %}<button type="button" class="filter" data-value="{{ t | slugify }}">{{ t }}</button>{% endfor %}
   </div>
-  <div class="post-list" id="posts">
-    {% for p in site.posts %}{% assign n = site.posts.size | minus: forloop.index0 %}{% include post-row.html post=p index=n %}{% endfor %}
-  </div>
-  <p class="empty-state mono" hidden>0 matches. Try another query.</p>
-</section>
+</div>
+<div class="post-list" id="posts">
+  {% for p in site.posts %}{% include post-row.html post=p %}{% endfor %}
+</div>
+<p class="empty-state muted" hidden>No posts match your search.</p>

@@ -1,25 +1,19 @@
 ---
 layout: default
-title: Work
-description: Portfolio of work samples and case studies in neural data engineering, machine learning, medical imaging and robotics.
+title: Projects
+description: Research and engineering projects in neural data, machine learning, medical imaging and robotics.
 ---
 {% assign items = site.work | sort: "order" %}
 {% assign cats = items | map: "category" | uniq %}
-<section class="page-head container">
-  <p class="label"><span class="idx">CH01</span> Work samples &amp; case studies</p>
-  <h1 class="page-title">Recordings<sup class="mono">{{ items.size }}</sup></h1>
-  <p class="lede">Projects across neural data engineering, machine learning, medical imaging and robotics. Each one covers the problem, what I built, and links to the code or paper.</p>
-</section>
+<header class="page-head">
+  <h1 class="reveal">Projects</h1>
+  <p class="lead reveal">Research and engineering work across neural data, machine learning, medical imaging and robotics. Each project page describes the problem, the approach and the outcome, with links to code or papers.</p>
+</header>
 
-<section class="container">
-  <div class="filter-bar" role="toolbar" aria-label="Filter work by category" data-filter-target="#work-grid" data-filter-attr="category">
-    <button type="button" class="filter is-active" data-value="all">All <span>{{ items.size }}</span></button>
-    {% for c in cats %}
-      {% assign n = items | where: "category", c | size %}
-      <button type="button" class="filter" data-value="{{ c | slugify }}">{{ c }} <span>{{ n }}</span></button>
-    {% endfor %}
-  </div>
-  <div class="work-grid" id="work-grid">
-    {% for w in items %}{% include work-card.html item=w %}{% endfor %}
-  </div>
-</section>
+<div class="filter-bar" role="toolbar" aria-label="Filter projects" data-filter-target="#work-grid" data-filter-attr="category">
+  <button type="button" class="filter is-active" data-value="all">All</button>
+  {% for c in cats %}<button type="button" class="filter" data-value="{{ c | slugify }}">{{ c }}</button>{% endfor %}
+</div>
+<div class="card-grid" id="work-grid">
+  {% for w in items %}{% include work-card.html item=w %}{% endfor %}
+</div>

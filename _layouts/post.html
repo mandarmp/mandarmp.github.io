@@ -3,22 +3,22 @@ layout: default
 ---
 {% assign words = content | strip_html | number_of_words %}
 {% assign mins = words | divided_by: 200 | plus: 1 %}
-<article class="container article">
+<article class="article">
+  <a class="back-link" href="{{ '/blog/' | relative_url }}">← Blog</a>
   <header class="article-head">
-    <a class="back-link mono" href="{{ '/blog/' | relative_url }}">← INDEX / LAB LOG</a>
-    <p class="label">
-      <span class="idx">{{ page.date | date: "%Y.%m.%d" }}</span> {{ mins }} min read
-      {% for t in page.tags %} · <a href="{{ '/blog/' | relative_url }}?tag={{ t | slugify }}">#{{ t }}</a>{% endfor %}
-    </p>
-    <h1 class="page-title">{{ page.title }}</h1>
-    {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
+    <p class="kicker reveal"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> · {{ mins }} min read</p>
+    <h1 class="reveal">{{ page.title }}</h1>
+    {% if page.description %}<p class="lead reveal">{{ page.description }}</p>{% endif %}
   </header>
-  {% if page.cover %}<img class="article-cover frame" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}">{% endif %}
+  {% if page.cover %}<figure class="figure"><img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title }}"></figure>{% endif %}
   <div class="prose">
     {{ content }}
   </div>
+  {% if page.tags.size > 0 %}
+  <p class="tags">{% for t in page.tags %}<a href="{{ '/blog/' | relative_url }}?tag={{ t | slugify }}">{{ t }}</a>{% endfor %}</p>
+  {% endif %}
   <nav class="post-nav">
-    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="mono">← Older</span>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
-    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span class="mono">Newer →</span>{{ page.next.title }}</a>{% endif %}
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="muted">← Previous</span>{{ page.previous.title }}</a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}"><span class="muted">Next →</span>{{ page.next.title }}</a>{% endif %}
   </nav>
 </article>

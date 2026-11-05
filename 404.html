@@ -4,13 +4,8 @@ title: Page not found
 permalink: /404.html
 sitemap: false
 ---
-<section class="page-head container">
-  <p class="label"><span class="idx">ERR 404</span> No signal</p>
-  <h1 class="page-title">Lost in the noise.</h1>
-  <p class="lede">The page you're looking for doesn't exist or has moved.</p>
-  <div class="btn-row">
-    <a class="btn btn-signal" href="{{ '/' | relative_url }}">Back home</a>
-    <a class="btn" href="{{ '/work/' | relative_url }}">Browse work</a>
-    <a class="btn" href="{{ '/blog/' | relative_url }}">Read the lab log</a>
-  </div>
-</section>
+<header class="page-head">
+  <h1>Page not found</h1>
+  <p class="lead">The page you're looking for doesn't exist or has moved.</p>
+  <p><a class="btn btn-primary" href="{{ '/' | relative_url }}">Back to home</a></p>
+</header>
