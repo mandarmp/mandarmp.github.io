@@ -1,6 +1,6 @@
 ---
 title: Cardiac MRI Image Segmentation
-order: 4
+order: 6
 featured: false
 year: 2021
 category: Medical Imaging

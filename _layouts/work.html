@@ -14,7 +14,7 @@ layout: default
     </div>
     {% endif %}
     <dl class="facts reveal">
-      {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+      {% if page.role %}<div><dt>Role</dt><dd{% if page.role contains "[" %} class="todo"{% endif %}>{{ page.role }}</dd></div>{% endif %}
       {% if page.context %}<div><dt>Client / context</dt><dd>{{ page.context }}</dd></div>{% endif %}
       {% if page.prototype_time %}<div><dt>Time to first prototype</dt><dd{% if page.prototype_time contains '[' %} class="todo"{% endif %}>{{ page.prototype_time }}</dd></div>{% endif %}
       {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}

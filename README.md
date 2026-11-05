@@ -63,4 +63,10 @@ on the site. Find them all with `grep -rn "\[" _config.yml _data _work`.
 - [ ] `_work/*.md`: `result` and `prototype_time` for each project, plus real figures/screenshots (`cover`, `gallery`)
 - [ ] `_data/skills.yml`: confirm or delete the bracketed tools
 - [ ] `_data/testimonials.yml`, `_data/talks.yml`: add entries (sections appear automatically)
+- [ ] Ben-Shalom Lab figures: the lab site was unreachable from the build environment, so these are not copied yet. With your PI's OK, save them into `uploads/` and point `cover:` / `gallery:` at them:
+  - `https://benshalomlab.com/images/research/meapipeline.png` → HD-MEA case study (`_work/mea-analysis.md`)
+  - `https://benshalomlab.com/images/neuron11_cropped.gif` → MEA case study (`_work/mea-analysis.md`)
+  - `https://benshalomlab.com/images/research/stim.png` → stimulation case study (`_work/hdmea-stimulation.md`)
+  - `https://benshalomlab.com/images/team/mandar.jpg` → alternative headshot
+- [ ] `_work/hdmea-stimulation.md`: fill in your role, contribution and results
 - [ ] `_drafts/`: finish the BCI-landscape and real-time-decoder posts

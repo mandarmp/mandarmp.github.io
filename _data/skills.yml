@@ -3,7 +3,7 @@
 - group: Languages & core
   items: [Python, C++ (modern), Bash, Git, Linux]
 - group: Neural data & signals
-  items: [HD-MEA analysis, EEG / ECoG, Signal processing, Ion-channel modelling, "[MNE-Python]", "[SpikeInterface]"]
+  items: [HD-MEA analysis, EEG / ECoG, Signal processing, HD-MEA electrical stimulation, "[MNE-Python]", "[SpikeInterface]", "[Kilosort]", "[Phy]"]
 - group: Machine learning
   items: [scikit-learn, PyTorch, TensorFlow, Feature engineering, Model validation]
 - group: Engineering & delivery

@@ -1,6 +1,6 @@
 ---
 title: Robotic Server Implementation
-order: 5
+order: 7
 featured: false
 year: 2021
 category: Robotics
