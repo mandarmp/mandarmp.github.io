@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Projects
-description: Research and engineering projects in neural data, machine learning, medical imaging and robotics.
+title: Work
+description: Case studies in neural data pipelines, machine learning for biosignals, rapid prototyping, medical imaging and robotics.
 ---
 {% assign items = site.work | sort: "order" %}
 {% assign cats = items | map: "category" | uniq %}
 <header class="page-head">
-  <h1 class="reveal">Projects</h1>
-  <p class="lead reveal">Research and engineering work across neural data, machine learning, medical imaging and robotics. Each project page describes the problem, the approach and the outcome, with links to code or papers.</p>
+  <h1 class="reveal">Work</h1>
+  <p class="lead reveal">Case studies covering the problem, what I built, the result and how long the first prototype took. Have something similar? <a href="{% include call-url.html %}">Let's talk</a>.</p>
 </header>
 
 <div class="filter-bar" role="toolbar" aria-label="Filter projects" data-filter-target="#work-grid" data-filter-attr="category">

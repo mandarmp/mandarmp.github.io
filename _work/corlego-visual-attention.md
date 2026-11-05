@@ -17,6 +17,8 @@ metrics:
 links:
   - { label: Read the paper, url: "https://peerj.com/articles/18953/" }
   - { label: PDF, url: "https://peerj.com/articles/18953.pdf" }
+result: "Showed that object proximity, not similarity, drives reach trajectories; published as first author in PeerJ (2025)."
+prototype_time: "[e.g. 2 months]"
 ---
 
 ## The question

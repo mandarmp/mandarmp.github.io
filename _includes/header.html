@@ -5,7 +5,8 @@
       {% for item in site.nav %}
         <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
       {% endfor %}
-      <a href="{{ site.author.cv | relative_url }}">CV</a>
+      <a href="{{ site.author.resume | relative_url }}">Résumé</a>
+      <a class="nav-cta" href="{% include call-url.html %}">Book a call</a>
     </nav>
     <div class="header-actions">
       <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">

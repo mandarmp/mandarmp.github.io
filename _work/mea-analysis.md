@@ -16,6 +16,8 @@ metrics:
   - { value: "Reusable", label: "Lab-wide analysis workflows" }
 links:
   - { label: View repository, url: "https://github.com/roybens/MEA_Analysis" }
+result: "[Cut analysis from ~X hours to Y minutes per experiment; adopted by N researchers across M studies]"
+prototype_time: "[e.g. 3 weeks]"
 ---
 
 ## The problem
@@ -35,10 +37,12 @@ results hard to reproduce across experiments, cell lines and people.
 - **Reporting:** standard figures and summary tables that researchers can compare
   across conditions.
 
-## Why it matters
+## Result
 
-The pipelines supported research into neurodevelopmental disorders such as
-autism and epilepsy, where consistent, comparable measurements across many
-recordings are essential.
+- **Speed:** [analysis time per experiment went from ~X hours to Y minutes].
+- **Adoption:** [used by N researchers across M studies], supporting research
+  into autism and epilepsy.
+- **Reliability:** every dataset is processed the same way, so results are
+  comparable across experiments, cell lines and people.
 
 <!-- Add screenshots/figures in the `gallery:` front-matter field to show work samples. -->

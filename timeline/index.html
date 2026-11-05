@@ -1,39 +1,41 @@
 ---
 layout: default
-title: Timeline
-description: Career timeline for Mandar Patil, covering positions, education, publications and awards.
+title: Experience
+description: Two-track career timeline for Mandar Patil, combining industry engineering (Bosch, UC Davis Health) and science (MSc Birmingham, PhD UC Davis, publications).
 ---
 <header class="page-head">
-  <h1 class="reveal">Timeline</h1>
-  <p class="lead reveal">Positions, education, publications and awards, newest first. A complete record is in my <a href="{{ site.author.cv | relative_url }}">CV</a>.</p>
+  <h1 class="reveal">Experience</h1>
+  <p class="lead reveal">Two tracks that converge: production engineering on one side, neuroscience research on the other. Since 2022 I've combined both, building engineering-grade tools for neural data. Download the <a href="{{ site.author.resume | relative_url }}">1-page résumé</a> or the <a href="{{ site.author.cv | relative_url }}">full CV</a>.</p>
 </header>
 
-{% assign types = "work,education,research,publication,award" | split: "," %}
-<div class="filter-bar" role="toolbar" aria-label="Filter timeline" data-filter-target="#timeline" data-filter-attr="type">
-  <button type="button" class="filter is-active" data-value="all">All</button>
-  {% for t in types %}
-    {% assign n = site.data.timeline | where: "type", t | size %}
-    {% if n > 0 %}<button type="button" class="filter" data-value="{{ t }}"><i class="dot type-{{ t }}"></i>{% if t == "work" %}Industry{% elsif t == "research" %}Research{% else %}{{ t | capitalize }}{% endif %}</button>{% endif %}
-  {% endfor %}
+{% include tracks.html %}
+
+<div class="filter-bar tl-filters" role="toolbar" aria-label="Filter timeline" data-filter-target="#timeline" data-filter-attr="track">
+  <button type="button" class="filter is-active" data-value="all">Both tracks</button>
+  <button type="button" class="filter" data-value="engineering"><i class="dot dot-eng"></i>Engineering</button>
+  <button type="button" class="filter" data-value="science"><i class="dot dot-sci"></i>Science</button>
 </div>
 
-<ol class="timeline" id="timeline">
+<div class="dual-head" aria-hidden="true"><span class="eng">Engineering</span><span></span><span class="sci">Science</span></div>
+<ol class="dual" id="timeline">
   {% assign last_year = "" %}
   {% for e in site.data.timeline %}
     {% assign y = e.year | append: "" %}
     {% if y != last_year %}
-      <li class="tl-year" data-type="year">{{ y }}</li>
+      <li class="tl-year dual-year" data-type="year"><span>{{ y }}</span></li>
       {% assign last_year = y %}
     {% endif %}
-    <li class="tl-item reveal" data-type="{{ e.type }}">
-      <span class="tl-dot type-{{ e.type }}" aria-hidden="true"></span>
+    <li class="dual-item side-{{ e.track }} reveal{% if e.highlight %} is-key{% endif %}" data-track="{{ e.track }}">
       <div class="tl-card">
-        <p class="meta"><span class="tl-type type-{{ e.type }}">{% if e.type == "work" %}Industry{% else %}{{ e.type | capitalize }}{% endif %}</span> · {{ e.start }}{% if e.end %} – {{ e.end }}{% endif %}</p>
+        <p class="meta"><span class="track-tag">{% if e.track == "engineering" %}Engineering{% else %}Science{% endif %}</span> {% case e.type %}{% when "work" %}Industry{% when "research" %}Research{% else %}{{ e.type | capitalize }}{% endcase %} · {{ e.start }}{% if e.end %} – <span{% if e.end contains '[' %} class="todo"{% endif %}>{{ e.end }}</span>{% endif %}</p>
         <h3>{{ e.title }}</h3>
         <p class="tl-org">{{ e.org }}{% if e.location %}<span class="muted"> · {{ e.location }}</span>{% endif %}</p>
-        {% if e.summary %}<p>{{ e.summary }}</p>{% endif %}
+        {% if e.summary %}<p{% if e.summary contains '[' %} class="todo-inline"{% endif %}>{{ e.summary }}</p>{% endif %}
+        {% if e.metrics %}
+        <div class="key-metrics small">{% for m in e.metrics %}<div><strong{% if m.value contains '[' %} class="todo"{% endif %}>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}</div>
+        {% endif %}
         {% if e.points %}
-        <details>
+        <details{% if e.highlight %} open{% endif %}>
           <summary>Details</summary>
           <ul>{% for p in e.points %}<li>{{ p }}</li>{% endfor %}</ul>
         </details>
@@ -43,3 +45,21 @@ description: Career timeline for Mandar Patil, covering positions, education, pu
     </li>
   {% endfor %}
 </ol>
+
+{% if site.data.talks.size > 0 %}
+<section class="block">
+  <div class="block-head"><h2>Talks, posters &amp; teaching</h2></div>
+  <ul class="cv-list">
+    {% for t in site.data.talks %}<li class="reveal"><span class="cv-when">{{ t.date }} · {{ t.kind }}</span><span><strong>{% if t.url != "" %}<a href="{{ t.url }}">{{ t.title }}</a>{% else %}{{ t.title }}{% endif %}</strong><br><span class="muted">{{ t.venue }}</span></span></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="block">
+  <div class="block-head"><h2>Toolkit</h2></div>
+  <dl class="skills skills-grid">
+    {% for g in site.data.skills %}
+    <div class="reveal"><dt>{{ g.group }}</dt><dd>{% for s in g.items %}<span{% if s contains '[' %} class="todo"{% endif %}>{{ s }}</span>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd></div>
+    {% endfor %}
+  </dl>
+</section>

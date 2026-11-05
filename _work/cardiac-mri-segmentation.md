@@ -14,6 +14,8 @@ links:
   - { label: View repository, url: "https://github.com/mandarmp/Cardiac-MRI-IMAGESEG" }
 gallery:
   - { src: /uploads/Labelled_Sinus_of_Valsalva_aneurysm.jpg, caption: "Labelled cardiac MRI slice (aorta, right atrium, left ventricle)" }
+result: "[e.g. Dice score of X on held-out scans; Y× faster than manual delineation]"
+prototype_time: "[e.g. 4 weeks]"
 ---
 
 ## Overview

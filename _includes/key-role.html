@@ -1,0 +1,14 @@
+{% assign e = include.e %}
+<article class="key-role reveal">
+  <div class="key-role-head">
+    <p class="meta">Industry · {{ e.start }} – {{ e.end }} · {{ e.location }}</p>
+    <h3>{{ e.title }}, {{ e.org }}</h3>
+    <p>{{ e.summary }}</p>
+  </div>
+  {% if e.metrics %}
+  <div class="key-metrics">
+    {% for m in e.metrics %}<div><strong{% if m.value contains '[' %} class="todo"{% endif %}>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}
+  </div>
+  {% endif %}
+  {% if e.points %}<ul class="key-points">{% for p in e.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+</article>

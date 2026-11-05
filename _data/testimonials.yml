@@ -1,0 +1,7 @@
+# Short quotes from a PI, manager or collaborator. The section appears on the
+# home page as soon as at least one entry has a quote. Ask permission first.
+#
+# - quote: "Mandar turned our ad-hoc analysis scripts into a pipeline the whole lab uses."
+#   name: Dr. Jane Doe
+#   role: Principal Investigator, UC Davis
+[]

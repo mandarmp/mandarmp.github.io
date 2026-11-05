@@ -6,7 +6,8 @@
       <p class="meta">{{ w.category }} · {{ w.year }}</p>
       <h3>{{ w.title }}</h3>
       <p>{{ w.summary }}</p>
-      <span class="more">Read more <span aria-hidden="true">→</span></span>
+      {% if w.result %}<p class="result{% if w.result contains '[' %} todo{% endif %}"><span>Result</span>{{ w.result }}</p>{% endif %}
+      <span class="more">Read case study <span aria-hidden="true">→</span></span>
     </div>
   </a>
 </article>

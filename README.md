@@ -51,7 +51,16 @@ bundle install
 bundle exec jekyll serve --livereload
 ```
 
-## TODO
+## TODO: fill in before going live
 
-- Upload `uploads/Mandar_CV.pdf` (the CV buttons link to it).
-- Check the timeline dates marked `VERIFY` in `_data/timeline.yml`.
+Placeholders are written in `[square brackets]` and show up highlighted in amber
+on the site. Find them all with `grep -rn "\[" _config.yml _data _work`.
+
+- [ ] `_config.yml`: `phd_expected`, `location` (remote/relocation), `booking` (Calendly link, optional)
+- [ ] Upload `uploads/Mandar_Resume.pdf` (1-page industry résumé) and `uploads/Mandar_CV.pdf`
+- [ ] `_data/stats.yml`: the "[X TB] neural data processed" stat
+- [ ] `_data/timeline.yml`: Bosch metrics (build-time reduction %, releases owned), UC Davis Health adoption numbers, `VERIFY` dates
+- [ ] `_work/*.md`: `result` and `prototype_time` for each project, plus real figures/screenshots (`cover`, `gallery`)
+- [ ] `_data/skills.yml`: confirm or delete the bracketed tools
+- [ ] `_data/testimonials.yml`, `_data/talks.yml`: add entries (sections appear automatically)
+- [ ] `_drafts/`: finish the BCI-landscape and real-time-decoder posts

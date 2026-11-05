@@ -1,0 +1,17 @@
+# "What I do" cards on the home page. icon: pipeline | brain | bolt | shield
+- icon: pipeline
+  title: Neural & biosignal data pipelines
+  text: End-to-end pipelines from raw recordings to analysis-ready data, built to run unattended on HPC or cloud.
+  deliverables: [Ingestion & QC, Preprocessing, Feature extraction, Batch / HPC jobs]
+- icon: brain
+  title: Machine learning for EEG, ECoG & MEA
+  text: Decoding and classification models for neural signals, with validation designed to avoid leakage and inflated accuracy.
+  deliverables: [Feature engineering, Model selection, Robust validation, Reporting]
+- icon: bolt
+  title: Rapid prototyping
+  text: Turning research code and ideas into working tools quickly, such as dashboards, decoders and analysis apps that people can actually use.
+  deliverables: [Proof-of-concept in days, Interactive demos, Hand-off documentation]
+- icon: shield
+  title: Research-software rescue
+  text: Making fragile lab code reliable, using the testing, CI/CD and code-quality habits I learned shipping automotive software at Bosch.
+  deliverables: [Refactoring, Tests & CI, Reproducible environments, Code review]

@@ -1,101 +1,113 @@
 ---
 layout: default
-title: Neuroengineering & ML Engineer
+title: Neural Data & BCI Engineer · Rapid Prototyping
 ---
+{% capture call_url %}{% include call-url.html %}{% endcapture %}
+{% assign pubs = site.data.publications %}
+
+<!-- 1. Intro -->
 <section class="intro">
   <div class="intro-text">
-    <p class="kicker reveal">PhD Student · Biomedical Engineering · UC Davis</p>
+    <p class="kicker reveal">PhD candidate, Biomedical Engineering · UC Davis · expected <span{% if site.author.phd_expected contains '[' %} class="todo"{% endif %}>{{ site.author.phd_expected }}</span></p>
     <h1 class="reveal">Mandar Patil</h1>
-    <p class="lead reveal">I build data and machine-learning pipelines for high-dimensional neural recordings, turning noisy electrophysiology into reliable, reproducible results.</p>
-    <p class="reveal">My work spans high-density microelectrode arrays (HD-MEA), EEG and computational models of neurodevelopmental disorders such as autism and epilepsy. Before research I was a software engineer at <strong>Bosch</strong>, and I hold an MSc in Computational Neuroscience &amp; Cognitive Robotics from the <strong>University of Birmingham</strong>.</p>
+    <p class="lead reveal">Biomedical engineering PhD candidate who builds production-grade tools. I turn messy neural data into working pipelines, models and prototypes, fast.</p>
+    <p class="reveal">I combine scientific depth in electrophysiology and computational neuroscience with industry engineering habits from shipping automotive C++ at <strong>Bosch</strong>: testing, CI/CD and code that other people can rely on.</p>
+    <p class="availability reveal"><span class="live-dot" aria-hidden="true"></span><strong>Open to:</strong> {{ site.availability }}</p>
     <div class="intro-links reveal">
-      <a class="btn btn-primary" href="mailto:{{ site.author.email }}">Email</a>
-      <a class="btn" href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
-      <a class="btn" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="{{ site.author.cv | relative_url }}">CV</a>
+      <a class="btn btn-primary" href="{{ call_url }}"{% if site.author.booking != "" %} target="_blank" rel="noopener"{% endif %}>Book a 20-min call</a>
+      <a class="btn" href="{{ site.author.resume | relative_url }}">Download résumé</a>
+      <a class="btn" href="mailto:{{ site.author.email }}">Email</a>
     </div>
+    <p class="intro-secondary reveal">
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar</a>
+    </p>
   </div>
   <figure class="intro-photo reveal">
     <img src="{{ site.author.photo | relative_url }}" alt="Portrait of {{ site.author.name }}">
   </figure>
 </section>
 
-<div class="signal" aria-hidden="true"><canvas id="signal"></canvas></div>
-
-<section class="interests reveal" aria-label="Research interests">
-  <h2 class="eyebrow">Research interests</h2>
-  <ul class="chips">
-    <li>Neural signal processing</li><li>HD-MEA electrophysiology</li><li>Machine learning for biosignals</li>
-    <li>Neurodevelopmental disorders</li><li>Computational modelling</li><li>Reproducible research software</li>
-  </ul>
-</section>
-
-<div class="home-grid">
-  <section class="block">
-    <div class="block-head">
-      <h2>Selected publications</h2>
-      <a class="text-link" href="{{ '/publications/' | relative_url }}">All publications →</a>
-    </div>
-    <ol class="pub-list">
-      {% for p in site.data.publications %}{% include pub-row.html pub=p %}{% endfor %}
-    </ol>
-  </section>
-
-  <aside class="block news">
-    <h2>News</h2>
-    <ul class="news-list">
-      {% for n in site.data.news limit:6 %}
-      <li class="reveal"><time>{{ n.date }}</time><span>{{ n.text | markdownify | remove: '<p>' | remove: '</p>' }}</span></li>
-      {% endfor %}
-    </ul>
-  </aside>
+<div class="stats reveal">
+  {% for s in site.data.stats %}
+  <div><strong{% if s.value contains '[' %} class="todo"{% endif %}>{{ s.value }}</strong><span{% if s.label contains '[' %} class="todo"{% endif %}>{{ s.label }}</span></div>
+  {% endfor %}
 </div>
 
-<section class="block">
-  <div class="block-head">
-    <h2>Projects</h2>
-    <a class="text-link" href="{{ '/work/' | relative_url }}">All projects →</a>
-  </div>
-  {% assign featured = site.work | where: "featured", true | sort: "order" %}
-  <div class="card-grid">
-    {% for w in featured %}{% include work-card.html item=w %}{% endfor %}
+<p class="orgs reveal"><span>Experience at</span> Robert Bosch · UC Davis Health · University of California, Davis · University of Birmingham <span class="award">SPOT Award, Bosch</span></p>
+
+<div class="signal" aria-hidden="true"><canvas id="signal"></canvas></div>
+
+<!-- 2. What I do -->
+<section class="block" id="services">
+  <div class="block-head"><h2>What I do</h2><a class="text-link" href="{{ call_url }}">Discuss a project →</a></div>
+  <div class="services">
+    {% for s in site.data.services %}
+    <article class="service reveal">
+      <span class="service-icon" aria-hidden="true">{% include icon.html name=s.icon %}</span>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.text }}</p>
+      <ul>{% for d in s.deliverables %}<li>{{ d }}</li>{% endfor %}</ul>
+    </article>
+    {% endfor %}
   </div>
 </section>
 
-<section class="block two-col">
-  <div>
-    <div class="block-head">
-      <h2>Experience &amp; education</h2>
-      <a class="text-link" href="{{ '/timeline/' | relative_url }}">Full timeline →</a>
-    </div>
-    <ul class="cv-list">
-      {% assign roles = site.data.timeline | where_exp: "e", "e.type != 'publication'" %}
-      {% for e in roles limit:6 %}
-      <li class="reveal">
-        <span class="cv-when">{{ e.start }}{% if e.end %} – {{ e.end }}{% endif %}</span>
-        <span><strong>{{ e.title }}</strong><br><span class="muted">{{ e.org }}</span></span>
-      </li>
-      {% endfor %}
-    </ul>
+<!-- 3. Selected work -->
+<section class="block">
+  <div class="block-head"><h2>Selected work</h2><a class="text-link" href="{{ '/work/' | relative_url }}">All case studies →</a></div>
+  {% assign featured = site.work | where: "featured", true | sort: "order" %}
+  <div class="card-grid">
+    {% for w in featured limit:3 %}{% include work-card.html item=w %}{% endfor %}
   </div>
+</section>
+
+<!-- 4. Experience -->
+<section class="block">
+  <div class="block-head"><h2>Experience: engineer and scientist</h2><a class="text-link" href="{{ '/timeline/' | relative_url }}">Full experience →</a></div>
+  {% include tracks.html %}
+  {% assign key = site.data.timeline | where: "highlight", true | first %}
+  {% if key %}{% include key-role.html e=key %}{% endif %}
+</section>
+
+<!-- 5. Publications (one line) -->
+<section class="pub-line reveal">
+  <p><strong>{{ pubs.size }} papers</strong>, including a first-author paper in <em>PeerJ</em> (2025) on computational modelling of visually guided movements, plus preprints on epilepsy, prenatal folic acid and cortical organoids.</p>
+  <p class="pub-line-links"><a href="{{ '/publications/' | relative_url }}">View publications →</a><a href="{{ site.author.scholar }}" target="_blank" rel="noopener">Google Scholar →</a></p>
+</section>
+
+{% assign quotes = site.data.testimonials | where_exp: "t", "t.quote" %}
+{% if quotes.size > 0 %}
+<section class="block">
+  <div class="block-head"><h2>What collaborators say</h2></div>
+  <div class="quotes">
+    {% for t in quotes %}
+    <figure class="quote reveal"><blockquote>“{{ t.quote }}”</blockquote><figcaption><strong>{{ t.name }}</strong><br>{{ t.role }}</figcaption></figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if site.posts.size > 0 %}
+<section class="block">
+  <div class="block-head"><h2>Technical notes</h2><a class="text-link" href="{{ '/blog/' | relative_url }}">All notes →</a></div>
+  <ul class="mini-posts">
+    {% for p in site.posts limit:3 %}<li class="reveal"><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="muted">· {{ p.date | date: "%b %Y" }}</span></li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<!-- 6. Contact -->
+<section class="contact reveal" id="contact">
   <div>
-    <div class="block-head">
-      <h2>Skills</h2>
-    </div>
-    <dl class="skills">
-      {% for g in site.data.skills %}
-      <div class="reveal"><dt>{{ g.group }}</dt><dd>{{ g.items | join: ", " }}</dd></div>
-      {% endfor %}
-    </dl>
-    {% if site.posts.size > 0 %}
-    <div class="block-head spaced">
-      <h2>Recent writing</h2>
-      <a class="text-link" href="{{ '/blog/' | relative_url }}">Blog →</a>
-    </div>
-    <ul class="mini-posts">
-      {% for p in site.posts limit:3 %}<li class="reveal"><a href="{{ p.url | relative_url }}">{{ p.title }}</a> <span class="muted">· {{ p.date | date: "%b %Y" }}</span></li>{% endfor %}
-    </ul>
-    {% endif %}
+    <h2>Have a neural-data problem or a prototype to build?</h2>
+    <p>I usually reply within a day. Happy to talk consulting projects, contract work or full-time roles.</p>
+    <p class="muted small{% if site.author.location contains '[' %} todo{% endif %}">{{ site.author.location }}</p>
+  </div>
+  <div class="contact-actions">
+    <a class="btn btn-light" href="{{ call_url }}">Book a 20-min call</a>
+    <a class="btn btn-outline-light" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+    <a class="btn btn-outline-light" href="{{ site.author.resume | relative_url }}">Résumé (PDF)</a>
   </div>
 </section>

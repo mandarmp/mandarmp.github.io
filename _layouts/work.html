@@ -7,10 +7,17 @@ layout: default
     <p class="kicker reveal">{{ page.category }} · {{ page.year }}</p>
     <h1 class="reveal">{{ page.title }}</h1>
     <p class="lead reveal">{{ page.summary }}</p>
+    {% if page.result %}
+    <div class="result-callout reveal{% if page.result contains '[' %} todo{% endif %}">
+      <span>Result</span>
+      <p>{{ page.result }}</p>
+    </div>
+    {% endif %}
     <dl class="facts reveal">
       {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
-      {% if page.context %}<div><dt>Context</dt><dd>{{ page.context }}</dd></div>{% endif %}
-      {% if page.stack %}<div><dt>Tools</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
+      {% if page.context %}<div><dt>Client / context</dt><dd>{{ page.context }}</dd></div>{% endif %}
+      {% if page.prototype_time %}<div><dt>Time to first prototype</dt><dd{% if page.prototype_time contains '[' %} class="todo"{% endif %}>{{ page.prototype_time }}</dd></div>{% endif %}
+      {% if page.stack %}<div><dt>Stack</dt><dd>{{ page.stack | join: ", " }}</dd></div>{% endif %}
     </dl>
     {% if page.links %}
     <div class="intro-links reveal">
