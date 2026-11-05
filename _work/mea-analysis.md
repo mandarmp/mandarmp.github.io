@@ -1,48 +1,61 @@
 ---
-title: Multielectrode Array Analysis
+title: HD-MEA Analysis Platform
 order: 1
 featured: true
-year: 2022–2024
+year: 2022–present
 category: Neural Data
-role: Computational specialist
-context: UC Davis Health
-summary: Reusable HD-MEA analysis workflows for large neural datasets, improving the throughput and consistency of electrophysiology analysis.
-cover: /assets/img/work/mea.svg
-cover_alt: Abstract electrode grid with a hotspot of neural activity
-stack: [Python, NumPy, HPC, Data visualisation]
+role: Computational specialist → graduate student researcher
+context: Ben-Shalom Lab, UC Davis
+summary: A reusable analysis platform for high-density microelectrode array recordings, from raw voltage to spike-sorted units and network phenotypes, used across multiple disease models.
+cover: /assets/img/work/raster.svg
+cover_alt: Spike raster with synchronised network bursts and the population firing rate below (illustrative)
+stack: [Python, NumPy, "[SpikeInterface]", "[Kilosort]", "[Phy]", HPC]
 metrics:
-  - { value: "HD-MEA", label: "High-density array recordings" }
-  - { value: "HPC", label: "Supercomputer-scale processing" }
-  - { value: "Reusable", label: "Lab-wide analysis workflows" }
+  - { value: "Thousands", label: "Of electrodes per chip, recorded in parallel" }
+  - { value: "3 preprints", label: "KCNT1 epilepsy, prenatal folic acid, PPP2R5D organoids" }
+  - { value: "HPC", label: "Batch processing of whole experiments" }
 links:
   - { label: View repository, url: "https://github.com/roybens/MEA_Analysis" }
+  - { label: Ben-Shalom Lab research, url: "https://benshalomlab.com/research.html" }
 result: "[Cut analysis from ~X hours to Y minutes per experiment; adopted by N researchers across M studies]"
 prototype_time: "[e.g. 3 weeks]"
+gallery:
+  - { src: /assets/img/work/mea.svg, caption: "Electrode-array activity map: a hotspot of neural activity across the chip (illustrative)" }
 ---
 
 ## The problem
 
-High-density microelectrode arrays record thousands of channels at once. Each
-recording session produces large, noisy datasets, and ad-hoc notebooks made
-results hard to reproduce across experiments, cell lines and people.
+High-density microelectrode arrays (HD-MEAs) record thousands of electrodes at
+once from cultured neurons, organoids and brain slices. Every session produces
+large, noisy datasets. With ad-hoc notebooks, results were hard to reproduce
+and compare across experiments, cell lines, disease models and people.
 
 ## What I built
 
-- **Ingestion & preprocessing:** a consistent path from raw recordings to
+- **Ingestion & quality control:** a consistent path from raw recordings to
   filtered, quality-checked signals.
-- **Feature extraction:** spike, burst and network-activity metrics computed the
-  same way for every dataset.
+- **Spike sorting:** turning raw voltage into single-unit activity
+  ([SpikeInterface, Kilosort and Phy, plus custom methods]).
+- **Network phenotypes:** firing-rate, burst and synchrony metrics computed the
+  same way for every dataset, so conditions can be compared directly.
 - **Scale:** batch jobs on supercomputing resources so whole experiments run
   unattended.
-- **Reporting:** standard figures and summary tables that researchers can compare
-  across conditions.
+- **Reporting:** standard figures and summary tables for comparing conditions.
+
+## Where it has been used
+
+The same pipeline supports several disease models studied with collaborators:
+
+- **KCNT1-related epilepsy:** network activity of gain-of-function mouse
+  models ([preprint, 2025](https://doi.org/10.1101/2025.07.22.666003)).
+- **Prenatal folic acid exposure:** cortical electrophysiology changes
+  ([preprint, 2025](https://doi.org/10.1101/2025.05.07.652681)).
+- **PPP2R5D intellectual disability:** cortical-like organoid models
+  ([preprint, 2026](https://www.semanticscholar.org/paper/0b7e19b06aef3ee25ee4897791373bb39e1834b9)).
 
 ## Result
 
 - **Speed:** [analysis time per experiment went from ~X hours to Y minutes].
-- **Adoption:** [used by N researchers across M studies], supporting research
-  into autism and epilepsy.
+- **Adoption:** [used by N researchers across M studies].
 - **Reliability:** every dataset is processed the same way, so results are
-  comparable across experiments, cell lines and people.
-
-<!-- Add screenshots/figures in the `gallery:` front-matter field to show work samples. -->
+  comparable across experiments, cell lines and disease models.

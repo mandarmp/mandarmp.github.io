@@ -44,10 +44,11 @@
   to: 2026.9
   label: Graduate Student Researcher
   title: Graduate Student Research Assistant
-  org: University of California, Davis
+  org: University of California, Davis · Ben-Shalom Lab
   location: California, USA
-  summary: Statistics & computer science. Design and build reproducible computational workflows for neural and behavioural datasets.
+  summary: Design and build reproducible computational workflows for neural data, including HD-MEA electrical-stimulation experiments that control neuronal firing.
   points:
+    - Working on HD-MEA electrical stimulation to activate neurons at single-cell and network level and measure circuit responses.
     - Independently design and run computational workflows for neural and behavioural datasets.
     - Apply statistics, machine learning and scientific programming to hypothesis-driven studies.
     - Build reproducible analysis pipelines and visual reporting tools.
@@ -90,7 +91,6 @@
   points:
     - Processed high-density microelectrode array (HD-MEA) recordings at scale on supercomputing resources.
     - Built platforms to characterise neurodevelopmental disorders, focusing on autism and epilepsy.
-    - Built computational models of neuronal ion channels toward personalised therapies.
     - Contributed to the lab's open-source MEA_Analysis pipeline (github.com/roybens/MEA_Analysis).
     - Analysed mouse EEG datasets to find candidate biomarkers.
   link: { label: Ben-Shalom Lab, url: "https://benshalomlab.com/" }
